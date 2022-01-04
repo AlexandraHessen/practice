@@ -70,6 +70,20 @@ alert (recursionSum(100))
 
 // alert( sumTo(100) );
 
+function factorial(number){
+  if(number==1){
+    return 1
+  } else {
+    let result= number*factorial(number-1)
+    return result
+  }
+}
 
+// function factorial(n) {
+//   return (n != 1)   ?   n * factorial(n - 1)   :   1;
+// }
+
+
+alert (factorial(5))
 
 
