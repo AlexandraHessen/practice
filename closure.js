@@ -30,3 +30,14 @@ funcGlob()
 
 fancRef()
 
+
+let a=[1, 2, 3]
+let b=a.slice()
+console.log(a==b)
+console.log(a===b)
+console.log(a)
+console.log(b)
+console.log([]==[])
+console.log({}=={})
+console.log([]===[])
+console.log({}==={})
