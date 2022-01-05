@@ -1,15 +1,32 @@
-function makeWorker() {
-    let name = "Pete";
-  
-    return function() {
-      alert(name);
-    };
+var ffref=null;
+
+function f() {
+  var a=5;
+
+  function ff() {
+    console.log('замкнутая переменная a='+a);
   }
-  
-  let name = "John";
-  
-  // create a function
-  let work = makeWorker();
-  
-  // call it
-  work(); // что будет показано? "Pete" (из места создания) или "John" (из места выполнения)
+
+  ffref=ff; // сохраняем глобальную ссылку на функцию ff
+}
+
+f();
+
+ffref();
+
+
+let fancRef;
+
+function funcGlob(){
+  let variable=10;
+  function funcDel(){
+    console.log(variable)
+  }
+  funcDel()
+  fancRef=funcDel
+}
+
+funcGlob()
+
+fancRef()
+
