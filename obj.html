@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+var friend={ name:'Владимир', age:25 };
+console.log(friend.age);
+//25
+console.log(friend.name);
+//Владимир
+friend.name='Володя';
+console.log(friend.name);
+//Володя
+console.log('age' in friend);
+//true
+console.log('gender' in friend);
+//false
+console.log(friend.gender); /* несуществующий элемент */
+//undefined
+// friend.gender='М'; /* создаём новый элемент */
+friend["gender"]="M"
+console.log(friend.gender);
+//M
+console.log('gender' in friend);
+//true
+for ( var k in friend )
+  console.log( k );
+//name
+//age
+//gender
+for ( var k in friend )
+  console.log( k + ' / ' + friend[k] );
+//name / Володя
+//age / 25
+//gender / М
+delete friend.age;
+for ( var k in friend )
+  console.log( k + ' / ' + friend[k] );
+//name / Володя
+//gender / М
+console.log(delete friend.name); // delete ВСЕГДА возвращает true
+//true
+console.log(delete friend.zzz); // delete ВСЕГДА возвращает true
+//true
+    </script>
+</body>
+</html>
