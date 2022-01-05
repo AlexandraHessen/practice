@@ -87,3 +87,23 @@ function factorial(number){
 alert (factorial(5))
 
 
+function fibonacci(number){
+  console.log(number)
+  if(number <= 1){
+    return number
+  } else{
+    // формула Фибоначчи Fn = Fn-1 + Fn-2
+    let result=fibonacci(number - 1 ) + fibonacci(number - 2 )
+    return result 
+  }
+
+}
+
+alert(fibonacci(7))
+// function fib(n) {
+//   return n <= 1   ?   n   :  fib(n - 1) + fib(n - 2);
+// }
+
+// alert( fib(3) ); // 2
+// alert( fib(7) ); // 13
+// // fib(77); // вычисляется очень долго
