@@ -9,27 +9,16 @@
 <body>
     <script>
         let arrTest=[1, -9, 2, 89, -99, 15, 9]
-let arrPos=[]
-
-// function forFilter(arr){
-//     for (let i=0; i<arr; i++){
-//         console.log(i)
-//         if(i>0){
-//             arrPos.push(i)
-//         }
-//     }
-//     return arr
-// }
-
-// forFilter(arrTest)
-for (let i=0; i<arrTest.length; i++){
-
-        console.log(arrTest[i])
-        if(arrTest[i]>0){
-            arrPos.push(arrTest[i])
+        let arrPos=[]
+        for (let i=0; i<arrTest.length; i++){
+            if(arrTest[i]>0){
+                arrPos.push(arrTest[i])
+            }
         }
-    }
 console.log(arrPos)
+console.log(arrTest)
+console.log(arrTest[arrTest.length]=10)
+console.log(arrTest)
     </script>
 </body>
 </html>
