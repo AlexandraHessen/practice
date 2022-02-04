@@ -107,3 +107,72 @@ alert(fibonacci(7))
 // alert( fib(3) ); // 2
 // alert( fib(7) ); // 13
 // // fib(77); // вычисляется очень долго
+
+// Возведение в степень 
+function pow(x, n) {
+  if (n == 1) {
+    return x;
+  } else {
+    return x * pow(x, n - 1);
+  }
+}
+
+alert( pow(2, 3) ); // 8
+
+
+function powFunc(num, pow){
+  let result=0
+
+  if(pow==1){
+    return num
+  }
+  
+  for(let i=0; i<pow; i++){
+    return result=num*powFunc(num, pow-1)
+  }
+
+}
+
+console.log(pow(2, 3))
+
+
+function fact(num){
+  let result
+  if(num==1){
+    return 1
+  } else {
+    return result=num*fact(num-1)
+  }
+}
+fact (5)
+
+function sum(num){
+  let result
+  if(num==0){
+    return 0
+  } else{
+    return result=num+sum(num-1)
+  }
+//  return  (num==0)?0:num+sum(num-1)
+}
+
+sum(4)
+
+function fib(num){
+  let result
+  if(num <= 1){
+    return num
+  } else {
+    return result=fib(num-1)+fib(num-2)
+  }
+}
+
+fib(7)
+
+let a='[5, 7]'
+let b=eval(a)
+
+
+
+
+
