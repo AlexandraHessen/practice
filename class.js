@@ -14,3 +14,26 @@ class Animal {
   }
   
   let animal = new Animal("Мой питомец");
+
+  // ES5
+  function ClassName() {
+    let self=this
+    this.svoistvo=value; 
+  
+    this.metod=function() { 
+    }
+  }
+
+let objClass = new ClassName
+
+// ES6
+class ClassName {
+  constructor() {
+    this.svoistvo=value; 
+  }
+
+  metod() {
+  }
+}
+
+let objClass = new ClassName
