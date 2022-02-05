@@ -23,3 +23,7 @@ function sum(...theArgs) {
   // a, один
   // b, два
   // manyMoreArgs, [три, четыре, пять, шесть]
+
+  function func(a, b, ...rest) {
+
+  }
