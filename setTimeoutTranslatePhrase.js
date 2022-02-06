@@ -24,3 +24,13 @@ function translatePhrase() {
     var phrase=document.getElementById('IPhrase').value;
     console.log('перевожу фразу: '+phrase);
 }
+
+setTimeout(() => alert("Мир")); //выведется 2
+alert("Привет"); //выведется 1
+
+setTimeout(() => alert("timeout")); //3 макрозадача
+
+Promise.resolve()
+  .then(() => alert("promise")); //2 микрозадача
+
+alert("code"); //1
