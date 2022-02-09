@@ -1,23 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        let arr=[1, 2, 3, 4, 5, 6, 16]
-        let newArr=arr.filter((num)=>num%2==0).map((num)=>num/2)
-        console.log(newArr)
+        // var hufflepuff = wizards.reduce(function (newArr, wizard) {
+        //     if (wizard.house === 'Hufflepuff') {
+        //         newArr.push(wizard.name);
+        //     }
+        //     return newArr;
+        // }, []);
+
+
+        let arr = [1, 2, 3, 4, 5, 6, 16]
+        // let newArr=arr.filter((num)=>num%2==0).map((num)=>num/2)
+        let newArr = []
+//         var huff =arr.reduce(function (newArr, v) {
+//             if (v % 2 === 0) {
+//                 newArr.push(v);
+//             }
+//             return newArr;
+//         }, []);
+// console.log(huff)
+        function fra(r, v) {
+            if (v % 2 === 0) {
+                r.push(v)
+            } 
+            return r
+           
+        }
+        // https://habr.com/ru/post/483182/
+        console.log(arr.reduce(fra, []))
+        // console.log(newArr)
+        // function gg(num){
+        //     if (num%2==0){
+        //         return num/2
+        //     }
+        // }
+
+
+        // console.log(arr.map(gg))
         // // let newArr=arr.reduce(func, [])
         // function func(res, num, i){
         //     console.log(res)
         //     // console.log(res.push(9))
         //     if(num%2==0){
         //         console.log(num)
-             
+
         //         return res.push(num/2)
         //     } else{
         //         console.log(res)
@@ -25,9 +60,7 @@
         //     }
         // }
         // console.log(arr.reduce(func, []))
-
-
-
     </script>
 </body>
+
 </html>
