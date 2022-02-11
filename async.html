@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function bar(){
+            return Promise.resolve(10)
+        }
+
+        async function foo(){}
+
+        const res1 = foo()
+        const res2 = bar()
+
+        console.log(res1, res2)
+    </script>
+</body>
+</html>
