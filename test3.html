@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         var obj ={
+        //             a: () =>{
+        //                 console.log(this.prop);
+        //             },
+        //             prop: 1
+        //         }
+
+        //         obj.a();
+        //         var fn = obj.a.bind(obj)
+        //         fn()
+
+
+
+        //         var car1= {
+        //     model : 'Mercedes',
+        //     number : '1111-AAA',
+        //     price : 10000,
+        //     show : function() {
+        //         console.log(this)
+        //       console.log( this.model + " / "
+        //         + this.number + " / " + this.price );
+        //     } 
+        //   };
+
+
+        //   car1.show();
+
+        var a = 'hello'
+        function b() {
+            console.log(a)
+            var a = 'world'
+            console.log(a)
+        }
+        b()
+    </script>
+</body>
+
+</html>
