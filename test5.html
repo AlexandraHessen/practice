@@ -8,24 +8,71 @@
 </head>
 <body>
     <script>
-        var a='hello'
-        function b(){
-            if (false){
-                var a='world'
-            } else {
-                var b='man'
-            }
-            console.log(b)
-            console.log(a)
-        }
-        b()
-        // let a = 'hello'
-        // function b() {
-        //     console.log(a)
-        //     let a = 'world'
+        // var a='hello'
+        // function b(){
+        //     if (false){
+        //         var a='world'
+        //     } else {
+        //         var b='man'
+        //     }
+        //     console.log(b)
         //     console.log(a)
         // }
         // b()
+        // // let a = 'hello'
+        // // function b() {
+        // //     console.log(a)
+        // //     let a = 'world'
+        // //     console.log(a)
+        // // }
+        // // b()
+
+        // const s1=['a', 'b', 'c']
+        // const s2=['d', 'e', 'f']
+
+        // const result = s1.concat(s2).join('+')
+
+        // console.log(result)
+
+        // const obj1 = {
+        //     x:10
+        // }
+
+        // const obj2 = Object.create(obj1)
+        // console.log(obj2.x)
+
+        // var x=10
+
+        // function bar(funArg){
+        //     var x=30
+        //     funArg()
+        // }
+
+        // function foo(){
+        //     console.log(x)
+        // }
+
+        // foo.x=20
+        // bar.x=40
+
+        // bar(foo)
+
+        Promise.reject('a')
+        .catch(p=>p+'b')
+        .catch(p=>p+'c')
+        .then(p=>p+'d')
+        .finally(p=>p+'e')
+        .then(p=>console.log(p))
+
+        
+        Promise.reject('1')
+
+        .catch(p=>p+'2')
+        .catch(p=>p+'3')
+        .then(p=>p+'4')
+        .finally(p=>p+'5')
+        .then(p=>console.log(p))
+
 
     </script>
 </body>
