@@ -9,9 +9,8 @@
 <body>
     <script>
         let arr=[6, 8, 1, 120]
-        arr.sort((a,b)=>b-a)
-        console.log(arr)
-
+        let reverseArr=arr.map((num, i, arr)=>arr[arr.length-1-i])
+        console.log(reverseArr)
 
 
     </script>
