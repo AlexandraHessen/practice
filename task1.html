@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task1</title>
+</head>
+
+<body>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+    <input type="text" name="name" id="name_input" value="Xxxx">
+</body>
+<script>
+    const changeClass = (id, initialValue, className) => {
+        document.getElementById(id).addEventListener("input", (EO) => {
+            if (EO.target.value !== initialValue) {
+                document.getElementById(id).classList.add(className)
+            } else {
+                document.getElementById(id).classList.remove(className)
+            }
+        })
+    }
+
+    changeClass("name_input", "Xxxx", "red")
+</script>
+
+</html>
