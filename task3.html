@@ -22,8 +22,8 @@
             let promise2=fetch(ajaxHandlerScript+"?func=GET_DOMAIN_IP&domain="+domain2,{method: 'get'}).then( response => response.text() );
 
             Promise.all([promise1, promise2])
-            .then(results=>console.log("оба ответа получены:" + results.join("\n")))
-            .catch(error=>{console.log('ошибка!\n'+error);})
+            .then(results=>{console.log("оба ответа получены:\n" + results.join("\n"))})
+            .catch(error=>{console.log("ошибка!\n"+error);})
         });
 
     //     const changeClass = (id, initialValue, className) => {
