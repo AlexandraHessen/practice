@@ -8,7 +8,34 @@
 </head>
 <body>
     <input id="DomName1" value="www.microsoft.com">
-    <input id="DomName1" value="www.google.com">
-    <input type="button" value=" Получить IP-адреса">
+    <input id="DomName2" value="www.google.com">
+    <input type="button" id="GetAnIPAddress" value=" Получить IP-адреса">
+    <script>
+        "use strict";
+
+        const ajaxHandlerScript="http://fe.it-academy.by/TestAjax3.php";
+        document.getElementById("GetAnIPAddress").addEventListener("click", ()=>{
+            let domain1=document.getElementById("DomName1").value;
+            let domain2=document.getElementById("DomName2").value;
+
+            let promise1=fetch(ajaxHandlerScript+"?func=GET_DOMAIN_IP&domain="+domain1,{method: 'get'}).then( response => response.text() );
+            let promise2=fetch(ajaxHandlerScript+"?func=GET_DOMAIN_IP&domain="+domain2,{method: 'get'}).then( response => response.text() );
+
+            Promise.all([promise1, promise2])
+            .then(results=>console.log("оба ответа получены:" + results.join("\n")))
+            .catch(error=>{console.log('ошибка!\n'+error);})
+        });
+
+    //     const changeClass = (id, initialValue, className) => {
+    //     document.getElementById(id).addEventListener("input", (EO) => {
+    //         if (EO.target.value !== initialValue) {
+    //             document.getElementById(id).classList.add(className)
+    //         } else {
+    //             document.getElementById(id).classList.remove(className)
+    //         }
+    //     })
+    // };
+
+    </script>
 </body>
 </html>
