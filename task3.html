@@ -8,7 +8,7 @@
 </head>
 <body>
     <input id="DomName1" value="www.microsoft.com">
-    <input id="DomName2" value="www.google.com">
+    <input id="DomName2" value="www.onliner.by">
     <input type="button" id="GetAnIPAddress" value=" Получить IP-адреса">
     <script>
         "use strict";
@@ -22,8 +22,8 @@
             let promise2=fetch(ajaxHandlerScript+"?func=GET_DOMAIN_IP&domain="+domain2,{method: 'get'}).then( response => response.text() );
 
             Promise.all([promise1, promise2])
-            .then(results=>{console.log("оба ответа получены:\n" + results.join("\n"))})
-            .catch(error=>{console.log("ошибка!\n"+error);})
+            .then(results=>{console.log("оба ответа получены:\n" + results.join("\n"));})
+            .catch(error=>{console.log("ошибка!\n"+error)})
         });
 
     //     const changeClass = (id, initialValue, className) => {
