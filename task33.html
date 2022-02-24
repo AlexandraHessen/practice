@@ -9,7 +9,7 @@
 <body>
     <input id=DomName1 value='www.microsoft.com'>
     <input id=DomName2 value='www.microsoft.com'>
-    <!-- <input id=DomName3 value='www.google.com'> -->
+    <input id=DomName3 value='www.google.com'>
     <input type=button value='получить IP-адреса' onclick='getIP()'>
     
     <script>
@@ -22,11 +22,11 @@
     
             var domain1=document.getElementById('DomName1').value;
             var domain2=document.getElementById('DomName2').value;
-            // var domain3=document.getElementById('DomName3').value;
+            var domain3=document.getElementById('DomName3').value;
     
             var promise1=fetch(ajaxHandlerScript+"?func=GET_DOMAIN_IP&domain="+domain1,{method: 'get'}).then( response => response.text() );
             var promise2=fetch(ajaxHandlerScript+"?func=GET_DOMAIN_IP&domain="+domain2,{method: 'get'}).then( response => response.text() );
-            // var promise3=fetch(ajaxHandlerScript+"?func=GET_DOMAIN_IP&domain="+domain3,{method: 'get'}).then( response => response.text() );
+            var promise3=fetch(ajaxHandlerScript+"?func=GET_DOMAIN_IP&domain="+domain3,{method: 'get'}).then( response => response.text() );
     
             Promise.all([promise1,promise2])
                 .then( results => { console.log(results.join("\n")); } )
