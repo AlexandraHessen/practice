@@ -1,12 +1,12 @@
-h1 {
+.remark {
   color: red;
 }
 
-h1 span {
-  color: blue;
+.remark span.left {
+  margin-right: 1em;
 }
 
-h1:hover {
-  color: green;
+.remark span.left a:hover {
+  text-decoration: underline;
 }
-/*# sourceMappingURL=testsass.css.map */
+/*# sourceMappingURL=testSASS.css.map */
