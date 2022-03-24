@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #arrowToStart, #arrowToEnd {
+        background-color: black;
+    }
+
+    .paginator {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .page-item {
+        width: 57px;
+        list-style-type: none;
+        height: 20px;
+        background: black;
+        margin: 20px;
+        position: relative;
+    }
+
+    #arrowToStart {
+        transform: rotate(180deg);
+    }
+
+    .page-line{
+        width: 57px;
+        height: 2px;
+        border-top: 2px solid #E9A755;
+        position: absolute;
+        top: 50%;
+    }
+
+</style>
+
+<body>
+    <div class="wrap-paginator">
+        <ul class="paginator">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <img src="./arrow.png" id="arrowToStart">
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <span class="page-line"></span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <span class="page-line"></span>
+                </a>
+                </li>
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <span class="page-line"></span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <img src="./arrow.png" id="arrowToEnd">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        
+    </script>
+
+</body>
+
+</html>
