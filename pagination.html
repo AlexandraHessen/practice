@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="table"></table>
+    <ul id="pagination"></ul>
+
+    <script>
+        let users = [
+    {name: 'name1',  surname: 'surname1',  age: 30},
+    {name: 'name2',  surname: 'surname2',  age: 30},
+    {name: 'name3',  surname: 'surname3',  age: 30},
+    {name: 'name4',  surname: 'surname4',  age: 30},
+    {name: 'name5',  surname: 'surname5',  age: 30},
+    {name: 'name6',  surname: 'surname6',  age: 30},
+    {name: 'name7',  surname: 'surname7',  age: 30},
+    {name: 'name8',  surname: 'surname8',  age: 30},
+    {name: 'name9',  surname: 'surname9',  age: 30},
+    {name: 'name10', surname: 'surname10', age: 30},
+    {name: 'name11', surname: 'surname11', age: 30},
+    {name: 'name12', surname: 'surname12', age: 30},
+    {name: 'name13', surname: 'surname13', age: 30},
+];
+
+let table = document.querySelector('#table');
+let pagination = document.querySelector('#pagination');
+
+let notesOnPage = 3; // кол-во элементов на странице
+let countOfAllpagesArr = Math.ceil(users.length / notesOnPage); //количество станиц
+
+let showPage = (function() {
+    let active;
+    
+    return function(item) {
+
+// -------- выделяем красным нажатую кпонку активной выбранной страницы -------- //
+        if (active) {
+            active.classList.remove('active');
+        }
+        active = item;
+        
+        item.classList.add('active');
+// 
+
+        let pageNum = +item.innerHTML; //номер страницы
+
+        /*  Выводим формулу
+            1стр - с 0 по 3
+            2стр - с 3 по 6
+            3стр - с 6 по 9
+            4стр - с 9 по 12
+        slice режет НЕ ВКЛЮЧИТЕЛЬНО
+        => 
+        */
+        let start = (pageNum - 1) * notesOnPage; // индекс первого элемента на странице (с какого?) номер страницы минус 1 * количество  элементов на странице
+
+        let end = start + notesOnPage; //индекс последнего элемента на странице (по какой?) индекс первого товара на странице + кол-во товаров на странице
+        
+        
+        let notes = users.slice(start, end); //элементы на одной странице ( общее количество делим slice от и до)
+        
+// --------  автоматически создаем строки таблицы -------- //
+        table.innerHTML = '';
+        for (let note of notes) {
+            let tr = document.createElement('tr');
+            table.appendChild(tr);
+            
+            createCell(note.name, tr);
+            createCell(note.surname, tr);
+            createCell(note.age, tr);
+        }
+//        
+    };
+}());
+
+// -------- создаем сами цифры страниц автоматически  --------//
+let pagesArr = [];
+for (let i = 1; i <= countOfAllpagesArr; i++) {
+    let li = document.createElement('li');
+    li.innerHTML = i;
+    pagination.appendChild(li);
+    pagesArr.push(li);
+}
+
+showPage(pagesArr[0]);
+
+//-------- вешаем слушатель событий на кнопку страницы -------- //
+// чтобы при клике перещелкивались страницы
+for (let item of pagesArr) {
+    item.addEventListener('click', function() {
+        showPage(this);
+    });
+}
+
+// автоматически создаем строки таблицы
+function createCell(text, tr) {
+    let td = document.createElement('td');
+    td.innerHTML = text;
+    tr.appendChild(td);
+}
+    </script>
+
+</body>
+</html>
