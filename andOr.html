@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        alert(null || 2 || undefined); //2
+
+        alert(alert(1) || 2 || alert(3)); //1 и 2
+        // Вызов alert не возвращает значения, или, иначе говоря, возвращает undefined.
+        // Первый оператор ИЛИ || выполнит первый alert(1).
+        // Получит undefined и пойдёт дальше, ко второму операнду в поисках истинного значения.
+        // Так как второй операнд 2 является истинным, то вычисления завершатся, результатом undefined || 2 будет 2,
+        //     которое будет выведено внешним alert(....).
+        // Второй оператор || не будет выполнен, выполнение до alert(3) не дойдёт, поэтому 3 выведено не будет.
+        alert(1 && null && 2); //null 
+
+        alert(alert(1) && alert(2)); // 1 а потом undefined 
+        // Вызов alert не возвращает значения, или, иначе говоря, возвращает undefined.
+        // Поэтому до правого alert дело не дойдёт, вычисления закончатся на левом.
+
+        alert(null || 2 && 3 || 4); //3
+
+        let age = Numbner(prompt("Number"))
+        if (age >= 14 && age <= 90) {
+
+        }
+
+        if (age < 14 || age > 90) {
+
+        }
+
+        if (14 <= !age <= 90) {
+
+        }
+
+        if (!(age >= 14 && age <= 90)) {
+
+        }
+
+        if (-1 || 0) alert('first'); //'first'
+        if (-1 && 0) alert('second');//-
+        if (null || -1 && 1) alert('third'); //'third'
+    </script>
+</body>
+
+</html>
