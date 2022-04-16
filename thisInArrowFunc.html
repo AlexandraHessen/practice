@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // эти объекты делают одно и то же (одинаковые методы)
+
+        // user1 = {
+        //     sayHi: () => {
+        //         alert("Привет");
+        //         console.log(this); //window
+        //     }
+        // };
+
+        // user1.sayHi()
+
+        // // сокращённая запись выглядит лучше, не так ли?
+        // user2 = {
+        //     sayHi() { // то же самое, что и "sayHi: function()"
+        //         alert("Привет");
+        //         console.log(this);
+
+        //         let arrow = () => console.log("this.name " + this.name)
+        //         arrow()
+        //     },
+        //     name: "ddd"
+        // };
+        // user2.sayHi()
+
+        // var obj = {
+        //     a: () => {
+        //         console.log(this) // this=window
+        //         console.log(this.prop); // undefined
+
+        //     },
+        //     prop: 1
+        // }
+
+        // obj.a();
+        // var fn = obj.a.bind(obj) // undefined 
+        // fn()
+        // console.log(obj.prop) // 1
+
+        // // -----------------
+        // // let user = {
+        // //     firstName: "Илья",
+        // //     sayHi() {
+        // //         console.log(this);
+        // //         let arrow = () => alert(this.firstName);
+        // //         arrow();
+        // //     }
+        // // };
+
+        // // user.sayHi(); // Илья
+
+        // const company = {
+        //     f1: () => {
+        //         console.log(this); // window
+        //     },
+        //     f2() {
+        //         console.log(this); //company
+        //     },
+        // };
+
+        // company.f1();
+        // company.f2();
+
+        // const printer = {
+        //     items: [1],
+        //     print() {
+        //         let ff = () => console.log(this);
+        //         ff()
+        //     },
+        // };
+
+        // printer.print();
+
+
+        const obj = {
+            arrowMethod: () => {
+                console.log(this); //window
+                console.log(this.property); // undefined
+            },
+
+            property: "good",
+
+
+            containerFunc() {
+                let arrowMethodInFunc = () => {
+                    console.log(this); // obj
+                    console.log(this.property) //good
+                }
+
+                arrowMethodInFunc();
+            }
+        };
+
+        obj.arrowMethod();
+        obj.containerFunc();
+    </script>
+</body>
+
+</html>
