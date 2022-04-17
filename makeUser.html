@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+
+        function makeUser() {
+            console.log(this); // window с use strict - undefined
+            return {
+                name: "Джон",
+                ref: this
+            };
+        };
+
+        let user = makeUser();
+        console.log(user); //{name: 'Джон', ref: undefined}
+        console.log(user.ref.name ); // Error: Cannot read property 'name' of undefined
+
+        // function makeUser() {
+        //     return {
+        //         name: "Джон",
+        //         ref() {
+        //             return this;
+        //         }
+        //     };
+        // };
+
+        // let user = makeUser();
+
+
+
+        // console.log(user.ref().name); // Джон
+    </script>
+</body>
+
+</html>
