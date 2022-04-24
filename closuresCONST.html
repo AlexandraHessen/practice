@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let firstName = "Roman";
+
+        function logFistName() {
+            console.log(firstName);
+        };
+
+        // если переменная объявлена внутри через const, то ее никто не перекрывает
+        function makeFirstNameLogger() {
+            const firstName = "Alex";
+            return function () {
+                console.log(firstName);
+            }
+        }
+
+        
+        const customFirstNameLogger = makeFirstNameLogger();
+        customFirstNameLogger(); //"Alex"
+
+        logFistName(); //"Roman"
+        firstName = "Dasha";
+        logFistName(); //"Dasha"
+        customFirstNameLogger(); //Alex
+
+
+    </script>
+</body>
+
+</html>
