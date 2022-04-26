@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_1</title>
+</head>
+
+<body>
+    <script>
+        function logThis(context=this){
+            console.log(this); //window
+            console.log(context); //arr
+        }
+
+        let arr={
+            name: "Alex "
+        }
+
+        // logThis();
+        logThis(arr);
+
+        const obj={
+            value: 100,
+            logThis,
+        }
+
+        obj.logThis()
+//         Array.prototype.myFilter = function (callback, context = this) {
+
+//             let resultArr = [];
+
+//             return function () {
+//                 return callback.apply(context, arguments)
+//             }
+
+//             return resultArr;
+
+//         };
+
+//         let arr = [1, 9, 66, -6, -99];
+
+//         let posArr = arr.filter((num) => num >= 0);
+
+//         console.log(posArr);
+
+
+// // function fun(){
+// //     console.log(this);
+// // }
+
+
+//         // let obj = {
+//         //     name: "Alex"
+//         // }
+
+//         // fun()
+
+//         // obj.fun()
+
+//         // console.log(obj.fun());
+
+//         function logThis(){
+//             console.log(this);
+//         }
+
+//         let ob={
+//             name: "Alex"
+//         }
+
+//         ob.logThis()
+    </script>
+</body>
+
+</html>
