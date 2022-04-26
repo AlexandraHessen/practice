@@ -17,8 +17,8 @@
             name: "Roman"
         }
 
-        const AlexanovAndUserName = logSurnameAndThisName.bind(user, "Alexanov");
-        logAlexanovAndUserName();
+        const logAlexanovAndUserName = logSurnameAndThisName.bind(user, "Alexanov");
+        logAlexanovAndUserName(); // Alexanov Roman
 
         user.name = "Vladimir"
 
