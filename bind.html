@@ -8,7 +8,23 @@
 </head>
 <body>
     <script>
-        function logSurnameAndThisName(surname){
+        // function logSurnameAndThisName(surname){
+        //     console.log(surname);
+        //     console.log(this.name);
+        // }
+
+        // const user ={
+        //     name: "Roman"
+        // }
+
+        // const logAlexanovAndUserName = logSurnameAndThisName.bind(user, "Alexanov");
+        // logAlexanovAndUserName(); // Alexanov Roman
+
+        // user.name = "Vladimir"
+
+        // logAlexanovAndUserName() // Alexanov Vladimir
+
+        function first(surname){
             console.log(surname);
             console.log(this.name);
         }
@@ -17,12 +33,12 @@
             name: "Roman"
         }
 
-        const logAlexanovAndUserName = logSurnameAndThisName.bind(user, "Alexanov");
-        logAlexanovAndUserName(); // Alexanov Roman
+        const second = first.bind(user, "Alexanov");
+        second(); // Alexanov Roman
 
         user.name = "Vladimir"
 
-        logAlexanovAndUserName() // Alexanov Vladimir
+        second() // Alexanov Vladimir
     </script>
 </body>
 </html>
