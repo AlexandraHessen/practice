@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_1</title>
+</head>
+
+<body>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <script>
+        // let arrColleck = document.querySelectorAll(".test")
+        // typeof
+        // console.log(arrColleck);
+        // console.log(arrColleck.length);
+        // let colFilter = arrColleck.forEach((v, i) => (i > 3))
+        // console.log();
+        // console.log(typeof arrColleck);
+        // console.log(Array.isArray(arrColleck));
+        // Array.prototype.myFilter = function (callback, context = this) {
+        // Array.prototype.myFilter = function (callback) { добавляем свой метод к массивам
+
+        // arr.filter(callback(value, index, array), thisArg){
+
+        // }
+
+        // Array.prototype.myFilter = function (callback, thisArg) {
+        //     // this = наш arr который вызывает наш метод
+        //     console.log("call");
+        //     //Проверки
+
+        //     // if (!(Array.isArray(this))) {
+        //     //     console.log(!(Array.isArray(this)));
+        //     //     throw new Error("Невалидное значение массива!")
+
+        //     // }
+
+        //     // if (Array.isArray(thisArg)){
+        //     //     this=thisArg
+        //     // }
+        //     console.log(this);
+        //     if (!(Array.isArray(this))) {
+        //         console.log(!(Array.isArray(this)));
+        //         throw new Error("Невалидное значение массива!")
+
+        //     }
+
+
+        //     let resultArr = [];
+
+        //     for (let i = 0; i < this.length; i++) {
+        //         if (callback.call(thisArg, this[i], i, arr)) {
+        //             resultArr.push(this[i])
+        //         }
+        //     }
+
+
+        //     return resultArr;
+        // }
+
+        Array.prototype.myFilter = function (callback, thisArg) {
+            if (!(Array.isArray(this))) {
+                throw new Error("Невалидное значение массива!")
+            };
+
+            if (typeof callback !== "function") {
+                throw Error("Невалидное значение функции!")
+            };
+
+            let resultArr = [];
+
+            for (let i = 0; i < this.length; i++) {
+                if (callback.call(thisArg, this[i], i, arr)) {
+                    resultArr.push(this[i])
+                }
+            }
+
+            return resultArr;
+        }
+
+        const arr = [1, -9, 0, 11];
+
+        function callbackToCheck(numb) {
+            return numb > 0
+        }
+
+        let er
+
+        console.log(arr.myFilter(callbackToCheck, er));
+
+        function isInRange(value) {
+            if (typeof value !== 'number') {
+                return false;
+            }
+            return value >= this.lower && value <= this.upper;
+        }
+        const data = [10, 20, "30", 1, 5, 'JavaScript filter', undefined, 'example'];
+        const range = undefined
+
+        const numberInRange = data.myFilter(isInRange, range);
+        console.log(numberInRange); // [10, 1, 5]
+
+        // let q = {
+        //     myFilter() {
+        //         console.log("fbdf");
+        //     }
+        // }
+        // console.log(arr.myFilter(call));
+        // console.log(q.myFilter(call));
+
+
+
+        // let posArr = arr.filter(call);
+        // console.log(posArr);
+
+        // arr.myFilter.call(un, callbackToCheck)
+    </script>
+</body>
+
+</html>
