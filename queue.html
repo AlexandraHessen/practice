@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Queue {
+            constructor() {
+                // this.queue = [];
+                // this.length = 0
+                // this.frontIndex = 0
+                // this.backIndex = -1
+                this.size = 0;
+                this.queue = [];
+            }
+            enqueue(item) {
+                // this.backIndex++
+                // this.queue[this.backIndex] = value
+                // this.length++
+
+
+                this.queue[this.size] = item;
+                this.size++
+            }
+            dequeue() {
+                if (this.size === 0) {
+                    return undefined
+                }
+
+                const value = this.queue[0]
+                this.queue[0] = null
+                this.queue = this.queue[1]
+                this.size--
+                return value
+
+                // --this.size;
+                // let deleteElement = this.queue[0];
+                // this.queue.length = this.size;
+                // return deleteElement;
+            }
+
+            peek() {
+                return this.stack[this.size - 1]
+            }
+
+            length() {
+                return this.size
+            }
+        }
+
+        let q = new Queue
+        console.log(q.enqueue(99));
+        console.log(q.enqueue(8));
+        console.log(q.enqueue(7));
+        console.log(q.enqueue(5));
+        console.log(q);
+        console.log(q.dequeue());
+        console.log(q);
+
+
+        //     1) enqueue: войти в очередь, добавить элемент в конец
+        // 2) dequeue: покинуть очередь, удалить первый элемент и вернуть его
+        // 3) front: получить первый элемент
+        // 4) isEmpty: проверить, пуста ли очередь
+        // 5) size: получить количество элементов в очереди
+    </script>
+</body>
+</html>
