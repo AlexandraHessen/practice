@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         class Queue {
@@ -14,31 +16,41 @@
                 // this.length = 0
                 // this.frontIndex = 0
                 // this.backIndex = -1
-                this.size = 0;
                 this.queue = [];
+                this.size = 0;
+                this.startIndex = 0;
+                this.endIndex = -1;
             }
             enqueue(item) {
                 // this.backIndex++
                 // this.queue[this.backIndex] = value
                 // this.length++
 
-
-                this.queue[this.size] = item;
+                this.endIndex++
+                this.queue[this.endIndex] = item;
                 this.size++
             }
             dequeue() {
-                if (this.size === 0) {
+                if (this.isEmpty()) {
                     return undefined
                 }
 
-                const value = this.queue[0]
-                this.queue[0] = null
-                this.queue = this.queue[1]
+                const deleteElement = this.queue[this.startIndex]
+                this.queue[this.startIndex] = null
+                this.startIndex++
                 this.size--
-                return value
+                return deleteElement
 
-                // --this.size;
+                // const value = this.queue[0]
+                // this.queue[0] = null
+                // this.queue = this.queue[1]
+                // this.size--
+                // return value
+
+
                 // let deleteElement = this.queue[0];
+                // this.queue[0]=null
+                // this.size--
                 // this.queue.length = this.size;
                 // return deleteElement;
             }
@@ -47,10 +59,107 @@
                 return this.stack[this.size - 1]
             }
 
-            length() {
+            front() {
+                if (this.isEmpty()) {
+                    return undefined
+                }
+
+                return this.queue[this.startIndex];
+            }
+
+            isEmpty() {
+                return this.size === 0;
+            }
+
+            size() {
                 return this.size
             }
         }
+        class ArrayQueue {
+            constructor() {
+                this.element = [];
+                this.length = 0
+                this.frontIndex = 0
+                this.backIndex = -1
+            }
+            isEmpty() {
+                return (this.length == 0)
+            }
+            /**
+             * Increment the back index and assign value in element array
+             * Increase the queue length 
+             * @param {*} value 
+             */
+            enqueue(value) {
+                this.backIndex++
+                this.element[this.backIndex] = value
+                this.length++
+            }
+            /**
+             * Get the front element which is waiting first 
+             * in the queue and return back the value
+             * While dequeue set the front element value as null,   
+             * since its removed from queue
+             * Decrease the length as element moves away from the queue
+             * @param {*} value 
+             */
+            dequeue() {
+                if (this.isEmpty()) throw (new Error("No elements"))
+                const value = this.getFront()
+                this.element[this.frontIndex] = null
+                this.frontIndex++
+                this.length--
+                return value
+            }
+            /**
+             * Get the front element which is waiting first in the queue
+             * and return back the value
+             */
+            getFront() {
+                if (this.isEmpty()) throw (new Error("No elements"))
+                return this.element[this.frontIndex]
+            }
+            clear() {
+                this.element = []
+                this.length = 0
+                this.backIndex = 0
+                this.frontIndex = -1
+            }
+        }
+
+        // var Queue = function () {
+        //     this.first = null;
+        //     this.size = 0;
+        // };
+
+        // var Node = function (data) {
+        //     this.data = data;
+        //     this.next = null;
+        // };
+
+        // Queue.prototype.enqueue = function (data) {
+        //     var node = new Node(data);
+
+        //     if (!this.first) {
+        //         this.first = node;
+        //     } else {
+        //         n = this.first;
+        //         while (n.next) {
+        //             n = n.next;
+        //         }
+        //         n.next = node;
+        //     }
+
+        //     this.size += 1;
+        //     return node;
+        // };
+
+        // Queue.prototype.dequeue = function () {
+        //     temp = this.first;
+        //     this.first = this.first.next;
+        //     this.size -= 1;
+        //     return temp;
+        // };
 
         let q = new Queue
         console.log(q.enqueue(99));
@@ -60,6 +169,30 @@
         console.log(q);
         console.log(q.dequeue());
         console.log(q);
+        console.log(q.front());
+        // console.log(q.size());
+
+        try {
+            let queue = new Queue();
+            queue.enqueue(1)
+            queue.enqueue(2)
+            queue.enqueue(3)
+            queue.enqueue(4)
+console.log(queue);
+            // Now the array elements = [1, 2, 3, 4]
+            queue.dequeue()
+            queue.dequeue()
+            // // Now the array elements = [null, null, 3, 4]
+            queue.enqueue(1)
+            queue.enqueue(2)
+            // // Now the array elements = [null, null, 3, 4, 1, 2]
+            console.log(queue.front())
+            // // Output: 3
+
+        } catch (error) {
+            console.log(error)
+        }
+
 
 
         //     1) enqueue: войти в очередь, добавить элемент в конец
@@ -69,4 +202,5 @@
         // 5) size: получить количество элементов в очереди
     </script>
 </body>
+
 </html>
