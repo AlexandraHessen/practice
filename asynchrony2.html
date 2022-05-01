@@ -8,16 +8,16 @@
 </head>
 <body>
     <script>
-        console.log("111");
+        console.log("111"); //1
         setTimeout(()=>{
-            console.log("222");
+            console.log("222"); //3
 
-            setTimeout(()=> console.log("333"), 0);
+            setTimeout(()=> console.log("333"), 0); //5
         }, 0);
 
-        setTimeout(()=> console.log("444"));
+        setTimeout(()=> console.log("444")); //4
 
-        console.log("555");
+        console.log("555"); //2
     </script>
 </body>
 </html>
