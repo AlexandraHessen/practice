@@ -8,17 +8,17 @@
 </head>
 <body>
     <script>
-        console.log("111");
+        console.log("111"); //1
 
-        setTimeout(()=> console.log("222"), 0);
+        setTimeout(()=> console.log("222"), 0); // 5 выполяется из макрозадач
 
-        Promise.resolve("333")
-         .then((val) => console.log(val));
+        Promise.resolve("333") //после 1 попадает в микрозадачи
+         .then((val) => console.log(val)); // 3 выполняется из микрозадач
 
-         console.log("444");
+         console.log("444"); //2
 
-         Promise.resolve("555")
-          .then ((val) => console.log(val));
+         Promise.resolve("555") //после 2 попадает в микрозадачи
+          .then ((val) => console.log(val)); // 4 выполняется из микрозадач
     </script>
 </body>
 </html>
