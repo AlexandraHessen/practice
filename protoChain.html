@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person ={name: "Roman"}
+        const user={
+            id: 123,
+            __proto__:person,
+        }
+
+        delete user.name
+        console.log(user.name);
+
+        user.name="Vladimir"
+
+        console.log(user.name);
+        console.log(user.__proto__.name);
+    </script>
+</body>
+</html>
