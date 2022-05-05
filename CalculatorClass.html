@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+
+        class Calculator {
+            #num1;
+            #num2;
+
+            constructor(num1, num2) {
+                // if (isNaN(num1) || isNaN(num2)) {
+                //     throw new Error("Невалидное число!");
+                // }
+
+                this.num1 = num1;
+                this.num2 = num2;
+            }
+
+            // constructor(numy1, num2) {
+            //     // if (isNaN(num1) || isNaN(num2)) {
+            //     //     throw new Error("Невалидное число!");
+            //     // }
+
+            //     // this.#num1 = num1;
+            //     // this.#num2 = num2;
+            // }
+
+            set num1(value){
+
+                if (typeof(value) !== "number" ) {
+                    throw new Error("Невалидное число!");}
+
+                 this.#num1= value;
+                
+
+            }
+
+            get num1(){
+                return this.#num1;
+            }
+
+            set num2(value){
+                if (typeof(value) !== "number") throw new Error("Невалидное число!");
+                this.#num2= value;
+                this.#logSum()
+                this.#logMul()
+                this.#logSub()
+                this.#logDiv()
+                
+            }
+
+            get num2(){
+                return this.#num2;
+                
+            }
+
+            setX(num) {
+                if (isNaN(num)) throw new Error("Невалидное число!");
+
+                this.#num1 = num;
+
+            }
+            setY(num) {
+                if (isNaN(num)) throw new Error("Невалидное число!")
+                this.#num2 = num;
+
+            }
+
+            #logSum() {
+                console.log(this.#num1 + this.#num2);
+
+            }
+            #logMul() {
+                console.log(this.#num1 * this.#num2);
+            }
+
+            #logSub() {
+                console.log(this.#num1-this.#num2);
+
+            }
+
+            #logDiv() {
+                if (this.#num2 === 0) throw new Error ("Второе сичло не может быть равно 0!");
+                console.log(this.#num1/this.#num2);
+
+            }
+        }
+
+        let cal= new Calculator(96);
+cal.num2=3;
+
+console.log(cal.num1);
+// cal.num2=5;
+        // calc.num2(2)
+        // console.log(cal.num1);
+        // cal.num1="k";
+        // console.log(cal.num1);
+
+        // class Calculat {
+        //     #num1;
+
+        //     set num1(value){
+        //         if (value<18) throw new Error("Too young!")
+        //         if (value > 65) throw new Error ("Too old!")
+        //         this.#num1 = value;
+        //     }
+
+        //     get num1(){
+        //         return this.#num1
+        //     }
+        // }
+
+        // const employee = new Calculat;
+        // // employee.num1 = 100 //Too old!
+        // employee.num1 = 43
+        // console.log(employee.num1);
+    </script>
+</body>
+
+</html>
