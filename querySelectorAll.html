@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Этот</li>
+        <li>тест</li>
+      </ul>
+      <ul>
+        <li>полностью</li>
+        <li>пройден</li>
+      </ul>
+      <script>
+        let elements = document.querySelectorAll('ul > li:last-child');
+      
+        for (let elem of elements) {
+          alert(elem.innerHTML); // "тест", "пройден"
+        }
+      </script>
+</body>
+</html>
