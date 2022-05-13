@@ -7,7 +7,7 @@ arrowToUpPage.addEventListener("click", () => {
     window.scrollTo(0, 0);
 })
 
-let previewContainer = document.querySelector(".lot__preview-container");
+let previewContainer = document.querySelector(".container");
 previewContainer.addEventListener("click", (EO) => {
     EO = EO || window.event;
     if (EO.target.tagName.toLowerCase() !== "img") return;
