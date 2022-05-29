@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        /* label input[type=checkbox] {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            display: block;
+            width: 0;
+            height: 0;
+        } */
+
+        .checkbox-other {
+            display: block;
+            margin: 0 0 10px 0;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+
+        .checkbox-other input[type=checkbox] {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            display: block;
+            width: 0;
+            height: 0;
+        }
+
+        .checkbox-other span {
+            display: inline-block;
+            position: relative;
+            padding: 0 0 0 35px;
+            line-height: 22px;
+        }
+
+        .checkbox-other span:before {
+            content: "";
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: background 0.3s ease;
+            background: url(/checkbox-1.png) 0 0 no-repeat;
+        }
+
+        /* Checked */
+        .checkbox-other input[type=checkbox]:checked+span:before {
+            background-image: url(/checkbox-2.png);
+        }
+
+        /* Focus */
+        .focused span:before {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+        }
+
+        /* Hover */
+        .checkbox-other span:hover:before {
+            filter: brightness(110%);
+        }
+
+        /* Active */
+        .checkbox-other span:active:before {
+            filter: brightness(80%);
+        }
+
+        /* Disabled */
+        .checkbox-other input[type=checkbox]:disabled+span {
+            color: #666;
+            cursor: default;
+        }
+
+        .checkbox-other input[type=checkbox]:disabled+span:before {
+            filter: grayscale(100%);
+            opacity: 0.6;
+        }
+    </style>
+    <label class="checkbox-other">
+        <input type="checkbox" checked>
+        <span>Checkbox #1</span>
+    </label>
+
+    <label class="checkbox-other">
+        <input type="checkbox">
+        <span>Checkbox #2</span>
+    </label>
+
+    <label class="checkbox-other">
+        <input type="checkbox" disabled>
+        <span>Checkbox #3</span>
+    </label>
+
+    <label class="checkbox-other">
+        <input type="checkbox" checked disabled>
+        <span>Checkbox #4</span>
+    </label>
+</body>
+
+</html>
