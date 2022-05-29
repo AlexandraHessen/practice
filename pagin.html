@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <template> <!-- содержимое template встраивается в body	-->
+    <div>
+      <div>
+        <template v-for="post in posts"> <!-- отображение каждого элемента	-->
+          <div :key="post.id">
+            {{ item.title }}
+          </div>
+        </template>
+      </div>
+      <div>  <!-- Добавляем кнопки	-->
+        <button @click="prev">
+          Предыдущая страница
+        </button>
+        <button @click="next">
+          Следующая страница
+        </button>
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    //... тут код из прошлого примера
+    
+    methods: {// добавим функций на страницу
+      prev(){
+        const page = this.currentPage()
+        if(page > 0)
+          // переходим на https://example.com/posts?page={page - 1}
+          this.$router.push({query: {page: page - 1}})
+      },
+      next(){
+        const page = this.currentPage()
+        if(page < 100) // для примера допустим что у нас всегда есть ровно 100 страниц
+          // переходим на https://example.com/posts?page={page + 1}
+          this.$router.push({query: {page: page + 1}})
+      },
+    },
+  }
+  </script>
+</body>
+</html>
