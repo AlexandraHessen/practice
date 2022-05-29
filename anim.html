@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .myspan {
+            display: inline-block;
+            font-size: 30px;
+            background-color: #ddd;
+            vertical-align: bottom;
+        }
+
+        .myspan::after {
+            content: " \00a0\f12a ";
+            font-family: ionicons;
+            font-size: 80%;
+            display: inline-block;
+            max-width: 0;
+            transition: max-width .6s;
+            vertical-align: bottom;
+            overflow: hidden;
+        }
+
+        .myspan:hover::after {
+            max-width: 80px;
+            transition: max-width 1s;
+        }
+    </style>
+
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
+
+    <span class="myspan">Hello!</span>
+
+</body>
+
+</html>
