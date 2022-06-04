@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .modal-checkbox {
+            display: none;
+        }
+
+        .modal-checkbox+label {
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: #ccc;
+            border: 1px solid #555;
+            text-align: center;
+        }
+
+        .modal-checkbox+label:before {
+            /* content: '✔';
+            font-size: 20px; */
+        }
+
+        .modal-checkbox:checked+label:before {
+            /* border: 1px solid green; */
+            content: '✔';
+            font-size: 20px;
+        }
+
+        .modal-checkbox:checked+label:before {
+            color: #000;
+        }
+    </style>
+    <input class="modal-checkbox" type="checkbox" id="checkbox" />
+    <label for="checkbox"></label>
+</body>
+
+</html>
