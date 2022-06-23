@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sayHiBye(firstName, lastName) {
+
+            // функция-помощник, которую мы используем ниже
+            function getFullName() {
+                return firstName + " " + lastName;
+            }
+            alert("Hello, " + getFullName());
+            alert("Bye, " + getFullName());
+        }
+
+
+        // функция-конструктор возвращает новый объект
+        function User(name) {
+            // методом объекта становится вложенная функция
+            this.sayHi = function () {
+                alert(name);
+            };
+        }
+
+        let user = new User("John");
+        user.sayHi(); // у кода метода "sayHi" есть доступ к внешней переменной "name"
+
+
+        function makeCounter() {
+            let count = 0;
+
+            return function () {
+                return count++; // есть доступ к внешней переменной "count"
+            };
+        }
+
+        let counter = makeCounter();
+        alert(counter()); // 0
+        alert(counter()); // 1
+
+
+        //Можем ли мы каким-нибудь образом сбросить счётчик count из кода, который не принадлежит makeCounter? Например, после вызова alert в коде выше.
+        //Такой возможности нет: count – локальная переменная функции, мы не можем получить к ней доступ извне.
+
+        //Если мы вызываем makeCounter несколько раз – нам возвращается много функций counter. Они независимы или разделяют одну и ту же переменную count?
+        //Для каждого вызова makeCounter() создаётся новое лексическое окружение функции, со своим собственным count. Так что, получившиеся функции counter – независимы.
+
+
+    </script>
+</body>
+
+</html>
