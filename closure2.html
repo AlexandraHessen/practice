@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let fancRef;
+
+        function funcGlob() {
+            let variable = 10;
+
+            function funcDel() {
+                console.log(variable)
+            }
+            funcDel()
+            fancRef = funcDel
+        }
+
+        funcGlob()
+
+        fancRef()
+
+
+        const myFunc = () => {
+            const a = 2
+            return () => console.log('a is ' + a)
+        }
+
+        const a = 1
+        const test = myFunc()
+        console.log(myFunc()) //2
+        console.log(test)
+        test()//2
+        console.log( test());
+    </script>
+</body>
+
+</html>
