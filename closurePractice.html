@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let name = "John";
+
+        function sayHi() {
+            alert("Hi, " + name);
+        }
+
+        // sayHi();  а если тут то будет Hi, John
+
+        name = "Pete";
+
+        sayHi(); // что будет показано: "John" или "Pete"?
+        //Hi, Pete
+        //Функция получает текущее значение внешних переменных, 
+        //то есть, их последнее значение
+
+        //Старые значения переменных нигде не сохраняются. 
+        //Когда функция хочет получить доступ к переменной, 
+        //она берёт её текущее значение из своего или внешнего лексического окружения.
+    </script>
+</body>
+
+</html>
