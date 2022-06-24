@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // "use strict"
+        function Class() {
+            this.a = 8;
+            console.log(this);
+            return 6
+        }
+
+        Class()
+
+        let newObj = new Class;
+
+        console.log(newObj.a);
+        console.log(Class());
+        console.log(newObj.a);
+
+        // 1. obj.method() this = obj
+
+        // 2. "use strict"
+        // method() this = undefined
+        // Если внутри функции(метода) будем использовать this например (this.name) то Error
+
+        // 3. Без "use strict"
+        // method() this = window
+        // Если внутри метода будет this.name то undefined
+    </script>
+</body>
+
+</html>
