@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var ffref = null;
+
+        function f() {
+            var a = 5;
+            console.log('локальная для f переменная a=' + a); //5
+
+            function ff() {
+                var b = 20;
+                console.log('локальная для ff переменная b=' + b); //20
+                console.log('замкнутая переменная a=' + a); //5
+            }
+
+            ff();
+
+            ffref = ff; // сохраняем глобальную ссылку на функцию ff
+
+            a++;
+            console.log('локальная для f переменная a=' + a); //6
+
+        }
+
+        f();
+
+        ffref();
+
+        //20
+        //6
+
+
+        let funcRef;
+
+        function parentFunc(){
+            let a=1;
+
+            function childFunc(){
+                console.log(a);
+            }
+
+            funcRef = childFunc
+        }
+
+        parentFunc()
+
+        funcRef()
+    </script>
+</body>
+
+</html>
