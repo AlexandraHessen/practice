@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const second =()=>{
+            console.log("Hello there!"); //2
+        }
+
+        const first =()=>{
+            console.log("Hi there!"); //1
+            second()
+            console.log("The End"); //3
+        }
+
+        first()
+
+
+        console.log("1"); //1
+
+        setTimeout(function(){
+            console.log("2"); //3
+        }, 3000)
+
+        console.log("3");  //2
+    </script>
+</body>
+</html>
