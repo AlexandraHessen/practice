@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var f=function (){
+            this.x=5;
+            (function(){
+                this.x = 3
+            })()
+            console.log(this.x);
+        }
+
+        var obj={x: 4, m: function(){
+            console.log(this.x);
+        }}
+
+        f() //3
+        new f() //5
+        // new f()  равно записи ниже
+        // let inst = new f()
+        // console.log(inst.x);
+        obj.m() //4
+        new obj.m() //undefined
+        //new obj.m() равно записи ниже
+        //  let o2= new obj.m()
+        //  console.log(o2);
+        // o2 будет равен 
+        // console.log(o2.x); undefined
+        //т.к. в m: function(){
+        //     console.log(this.x);
+        // } нет свойства x
+        f.call(f) //5
+        obj.m.call(f) //5
+    </script>
+</body>
+</html>
