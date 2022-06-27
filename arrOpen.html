@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let testArr = [1, 3, [5, 9], 0]
+        let newArr = []
+
+        function openArr(arr) {
+            arr.forEach((v) => {
+                if (Array.isArray(v)) {
+                    openArr(v)
+                } else {
+                    newArr.push(v)
+                }
+            })
+            return newArr
+        }
+
+        console.log(openArr(testArr));
+    </script>
+</body>
+
+</html>
