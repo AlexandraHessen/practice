@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var f = function () {
+            this.x = 5;
+            (function () {
+                this.x = 3;
+            })();
+            console.log(this.x);
+        };
+
+        var obj = {
+            x: 4,
+            m: function () {
+                console.log(this.x);
+            }
+        };
+
+
+        f(); //3
+        new f(); //5
+        let obj2 = new f();
+        obj.m(); //4
+        new obj.m();
+        let obj3 = new obj.m();
+        f.call(f); //5
+        obj.m.call(f); //5
+    </script>
+</body>
+
+</html>
