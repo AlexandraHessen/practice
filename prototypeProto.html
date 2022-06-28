@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //__proto__ - есть у всех объектов
+        //prototype - есть только у классов и функций, КРОМЕ стрелочной
+        // у каждой функции и класса свой персональный прототип
+
+        //1
+        console.log(({}).prototype === ({}).__proto__); //false
+        console.log(({}).prototype);  //undefined
+        console.log(({}).__proto__);  //{constructor: }
+        //потому что prototype есть только у классов и функций
+
+
+        //2
+        function doSomething(){
+            console.log(doSomething.prototype === doSomething.__proto__); //false
+        }
+        doSomething()
+        console.log(doSomething.prototype ); //{constructor: ƒ}
+        //prototype это личный прототип функции doSomething()
+        console.log(doSomething.__proto__); //ƒ () { [native code] } вообще толжно быть Function.prototype
+        //потому что все функции созданы с помощью Function.prototype
+
+        //3 4
+        function jump(){}
+        function go(){}
+        console.log(jump.__proto__ === go.__proto__); //true
+        //потому что все функции созданы с помощью Function.prototype
+        console.log(jump.prototype === go.prototype); //false
+        //prototype разные потому что у каждой функции свой прототип
+
+        //5
+        let Component = (props) =>{
+            return '<div>Some content</div>'
+        }
+        console.log(Component.prototype === Function.prototype); //false
+        //у стрелочных функций нет прототипа
+
+        //6
+        class User{}
+        console.log(User.__proto__  === Function.prototype); //true
+        //класс - функция и он создан с помощью Function.prototype
+
+        //7
+        const num=5
+        console.log(num.__proto__ ); //Number.prototype
+
+    </script>
+</body>
+</html>
