@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        true + false // 1
+        12 / "6" // 2
+        "number" + 15 + 3 // "number153"
+        15 + 3 + "number" // "18number"
+        "foo" + +"bar" // fooNaN
+        'true' == true // false
+        false == 'false' // false
+
+        [1] > null // true
+        null == '' // 0 == 0 true  false
+        // undefined и null действует особое правило: эти значения ни к чему не приводятся, они равны себе и друг другу и не равны ничему другому. Поэтому (2) null == 0 ложно.
+        !!"false" == !!"true"  // true     false == false
+        ['x'] == 'x' // ??? true
+        //!!!!   [] по  умолчанию равен "", НО +[] переводит из-за + в number => 0 числовой 
+        [] + null + 1 //  'null1'  получиться "" + null = "null" + 1 =     'null1'
+        0|| "0" && {} //  ???{} 
+        //  && преорететнее поэтому считаем раньше "0" && {} если первое true ? то возырвщвем второе значение {}
+        // далее 0 || {}  Boolean(0) = false = > возвращаем вотрое значение {}
+        [1,2,3] == [1,2,3] //false
+
+
+        //!!!!!!!
+        //{} если самыйпервый, то пустой кодовый блок поэтому пропускаем
+        //+{} = "[object Object]"
+        //+[] переводит из-за + в number => 0 числовой 
+        //toString({}) = '[object Undefined]'
+        //=> Boolean({}) = true
+        //toString([]) = '[object Undefined]'
+        //=> Boolean([]) = true
+
+
+        {} +[] // 0 число
+        //{} пустой кодовый блок поэтому пропускаем
+        //+[] переводит из-за + в number => 0 числовой 
+
+        []+{} //'[object Object]'
+        //наверное "" + [object Object]
+        {} + [] + ""  // "0"
+        //{} пустой кодовый блок поэтому пропускаем
+        //+[] переводит из-за + в number => 0 числовой 
+        // 0+"" = > "0"
+        {}+[]+{}+[1]  // '0[object Object]1'
+        //первый {} пустой блок, просто пропускаем потом
+        //+[] переводит из-за + в number => 0 числовой 
+        // 0+{}+[1]   =    0 +"[object Object]"+[1]
+        //"0[object Object]"+[1]     =   '0[object Object]1'
+        
+        !+[]+[]+![] //??? 'truefalse'
+        //+[] переводит из-за + в number => 0 числовой 
+        //!0 +[]+![] = true
+        //true +[] +![]   = true + ""  ="true"
+        //"true"+![] // ![] = false наверное типо toString([]) = '[object Undefined]' => true => !true = false
+        //"truefalse"
+
+        
+
+
+
+
+    </script>
+</body>
+</html>
