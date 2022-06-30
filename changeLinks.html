@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const a = {}
+
+        function clear(obj) {
+            obj.x = 40
+            obj = null
+            //console.log(obj);
+        }
+
+        clear(a)
+
+        console.log(a) //{x: 40}
+
+        //получается что переменная а имеет свою ссылку на наш объект
+        //а (obj) аргумент obj имеет свою ссылку на тот же объект
+        // и когда мы делаем obj = null мы обнуляем ссылку именно у obj а у а все осталось как было
+        //поэтому если мы добавим консоль obj увидим что внутри его лежит null, а вот в не изменилась
+        // итого а = {x: 40}
+
+    </script>
+</body>
+
+</html>
