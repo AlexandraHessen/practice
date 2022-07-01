@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: 'Ben',
+            func: () => { //СТРЕЛОЧНАЯ ФУНКЦИЯ!!! и она описана не в функции. obj это не функция!
+                console.log(this.name); //undefined но почему то выводит в консоль пустую строку
+            }
+        }
+        obj.func();  //undefined но почему то выводит в консоль пустую строку
+        var x = obj.func;
+        x(); //undefined но почему то выводит в консоль пустую строку
+
+        x.name = 'Jack';
+        x(); //undefined но почему то выводит в консоль пустую строку
+    </script>
+</body>
+
+</html>
