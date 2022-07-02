@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //a
+        function Rabbit() {}
+        Rabbit.prototype = {
+            eats: true
+        };
+
+        var rabbit = new Rabbit();
+
+        Rabbit.prototype = {};
+
+        console.log(rabbit.eats); //???
+
+        //undefined
+
+
+
+
+        function Rabbit(name) {}
+        Rabbit.prototype = {
+            eats: true
+        };
+
+        var rabbit = new Rabbit();
+
+        Rabbit.prototype.eats = false;
+
+        console.log(rabbit.eats); //???
+
+        //false
+
+
+
+
+        function Rabbit(name) {}
+        Rabbit.prototype = {
+            eats: true
+        };
+
+        var rabbit = new Rabbit();
+
+        delete Rabbit.prototype.eats;
+
+        console.log(rabbit.eats); //???
+
+        //undefined
+    </script>
+</body>
+
+</html>
