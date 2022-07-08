@@ -1,0 +1,1 @@
+new Promise((resolve, reject) => resolve(Promise.reject())).then(() => console.log('a')).catch(() => console.log('b'));
