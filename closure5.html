@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function f() {
+            var a = 5;
+            console.log('локальная для f переменная a=' + a); //5
+
+            return function () { 
+                var b = 7;
+                console.log('локальная для ff переменная b=' + b); //7
+                console.log('замкнутая переменная a=' + a); //5
+            };
+
+        }
+
+        var a = 3
+        console.log(f())
+        var ffref = f(); 
+        console.log()
+        ffref(); 
+    </script>
+</body>
+
+</html>
