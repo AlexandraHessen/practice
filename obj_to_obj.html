@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //[{…}, {…}]
+        // categories: "Ukraine"
+        // items: (5) ['Cherkasy', 'Dnipro', 'Kharkiv', 'Kyiv', 'Odessa']
+
+
+        // id: 1000
+        // location: {locationId: 1, country: 'Ukraine', address: 'Cherkasy, O.Dashkovicha Street 3'
+
+
+        let my = [
+            {
+                categories: "Ukraine",
+                items: ['Cherkasy', 'Dnipro', 'Kharkiv', 'Kyiv', 'Odessa'],
+            },
+            {
+                categories: "Belarus",
+                items: ['Minsk', 'Polotsk', 'Gomel', 'Vitebsk'],
+            },
+        ];
+
+
+        let mark = [
+            {
+                id: 1000,
+                location: { locationId: 1, country: 'Ukraine', address: 'Cherkasy, O.Dashkovicha Street 3' },
+            },
+            {
+                id: 2000,
+                location: { locationId: 2, country: 'Belarus', address: 'Minsk, O.Dashkovicha Street 3' },
+            },
+        ];
+
+        let newMyArr=[];
+        
+
+        mark.forEach((obj)=>{
+            let newObj ={}
+            newObj.categories = obj.location.country;
+            newObj.items = obj.location.address.substring(0, obj.location.address.indexOf(','))
+            newMyArr.push(newObj)
+            return 
+        })
+
+        console.log(newMyArr);
+    </script>
+</body>
+
+</html>
