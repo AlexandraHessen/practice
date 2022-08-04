@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // (2)[{… }, {… }]
+        // 0: { id: 0, categories: 'Clothes', items: Array(3) }
+        // 1: {
+        //     id: 1, categories: 'Electronic', items: Array(2)
+
+        //     {
+        //         categories: "Clothes"
+        //         id: 0
+        //         items: (3)['Hoodie', 'Zip-up hoodie', 'T-shirt']
+        //     }
+        //     -------
+        //         { Office: Array(1), Clothes: Array(1) }
+        //     Office: ['Pen']
+        //     Clothes: ['hoodie zip up']
+
+        //         [
+    //     //   {
+    //     //     id: 0,
+    //     //     categories: Category.CLOTHES,
+    //     //     items: [Item.HOODIE, Item.ZIP_HOODIE, Item.T_SHIRT],
+    //     //   },
+    //     //   {
+    //     //     id: 1,
+    //     //     categories: Category.ELECTRONIC,
+    //     //     items: [Item.POWER_BANK, Item.HEADPHONES],
+    //     //   },
+    //     // ];
+
+        // [{ id: 0, categories: 'Clothes', items: ['Hoodie', 'Zip-up hoodie', 'T-shirt'] },
+        //     { id: 1, categories: 'Electronic', items: ['Power bank', 'Headphones'] }]
+
+        // let backData = { Office: ['Pen, Pensel'], Clothes: ['hoodie zip up, Phone'] }
+
+    //     let newMyArr = []
+    //     newMyArr.push(backData)
+
+    //     newMyArr.map((stock) => {
+    //         let newObj = {}
+
+    //         let res
+
+    //         return [
+    //             {
+    //                 ...backData
+    //             }
+
+    //         ]
+    //     })
+
+    // function log(){
+    //     return {
+    //                 ...backData
+    //             }
+
+            
+    // }
+
+    //     console.log(log());
+
+
+//         var obj = { foo: "bar", baz: 42 };
+// console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
+
+let backData = { Office: ['Pen, Pensel'], Clothes: ['hoodie zip up, Phone'] }
+let arr=Object.entries(backData)
+let obj={}
+arr.forEach((item)=>{
+    obj.categories=item[0]
+    obj.items=item[1]
+})
+console.log(obj);
+
+
+let myData=         [{ id: 0, categories: 'Clothes', items: ['Hoodie', 'Zip-up hoodie', 'T-shirt'] },
+         { id: 1, categories: 'Electronic', items: ['Power bank', 'Headphones'] }]
+         console.log(myData);
+
+
+    </script>
+</body>
+
+</html>
