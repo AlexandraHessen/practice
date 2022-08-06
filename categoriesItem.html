@@ -26,66 +26,117 @@
         //     Clothes: ['hoodie zip up']
 
         //         [
-    //     //   {
-    //     //     id: 0,
-    //     //     categories: Category.CLOTHES,
-    //     //     items: [Item.HOODIE, Item.ZIP_HOODIE, Item.T_SHIRT],
-    //     //   },
-    //     //   {
-    //     //     id: 1,
-    //     //     categories: Category.ELECTRONIC,
-    //     //     items: [Item.POWER_BANK, Item.HEADPHONES],
-    //     //   },
-    //     // ];
+        //     //   {
+        //     //     id: 0,
+        //     //     categories: Category.CLOTHES,
+        //     //     items: [Item.HOODIE, Item.ZIP_HOODIE, Item.T_SHIRT],
+        //     //   },
+        //     //   {
+        //     //     id: 1,
+        //     //     categories: Category.ELECTRONIC,
+        //     //     items: [Item.POWER_BANK, Item.HEADPHONES],
+        //     //   },
+        //     // ];
 
         // [{ id: 0, categories: 'Clothes', items: ['Hoodie', 'Zip-up hoodie', 'T-shirt'] },
         //     { id: 1, categories: 'Electronic', items: ['Power bank', 'Headphones'] }]
 
         // let backData = { Office: ['Pen, Pensel'], Clothes: ['hoodie zip up, Phone'] }
 
-    //     let newMyArr = []
-    //     newMyArr.push(backData)
+        //     let newMyArr = []
+        //     newMyArr.push(backData)
 
-    //     newMyArr.map((stock) => {
-    //         let newObj = {}
+        //     newMyArr.map((stock) => {
+        //         let newObj = {}
 
-    //         let res
+        //         let res
 
-    //         return [
-    //             {
-    //                 ...backData
-    //             }
+        //         return [
+        //             {
+        //                 ...backData
+        //             }
 
-    //         ]
-    //     })
+        //         ]
+        //     })
 
-    // function log(){
-    //     return {
-    //                 ...backData
-    //             }
-
-            
-    // }
-
-    //     console.log(log());
+        // function log(){
+        //     return {
+        //                 ...backData
+        //             }
 
 
-//         var obj = { foo: "bar", baz: 42 };
-// console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
+        // }
 
-let backData = { Office: ['Pen, Pensel'], Clothes: ['hoodie zip up, Phone'] }
-let arr=Object.entries(backData)
-let obj={}
-arr.forEach((item)=>{
-    obj.categories=item[0]
-    obj.items=item[1]
-})
-console.log(obj);
+        //     console.log(log());
 
 
-let myData=         [{ id: 0, categories: 'Clothes', items: ['Hoodie', 'Zip-up hoodie', 'T-shirt'] },
-         { id: 1, categories: 'Electronic', items: ['Power bank', 'Headphones'] }]
-         console.log(myData);
+        //         var obj = { foo: "bar", baz: 42 };
+        // console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
+
+        // let backData = { Office: ['Pen, Pensel'], Clothes: ['hoodie zip up, Phone'] }
+        // let arr=Object.entries(backData)
+        // let obj={}
+        // arr.forEach((item)=>{
+        //     obj.categories=item[0]
+        //     obj.items=item[1]
+        // })
+        // console.log(obj);
+
+
+        // let myData=         [{ id: 0, categories: 'Clothes', items: ['Hoodie', 'Zip-up hoodie', 'T-shirt'] },
+        //          { id: 1, categories: 'Electronic', items: ['Power bank', 'Headphones'] }]
+        //          console.log(myData);
+
+        //          map((response) =>{
+        //               let arr=Object.entries(response);
+        //               let obj:CategoryItem=arr.map((item)=>{
+        //                   obj.categories=item[0];
+        //                   obj.items=item[1];
+        //                   obj.id=0;
+        //               return obj
+
+        //               })
+        //             }
+
+        let myData = [  { id: 0, categories: 'Clothes', items: ['Hoodie', 'Zip-up hoodie', 'T-shirt'] },
+                        { id: 1, categories: 'Electronic', items: ['Power bank', 'Headphones'] }  ]
+
+        console.log(myData);
+
+
+        let response = {  Office: ['Pen, Pensel'],       Clothes: ['hoodie zip up, Phone']  }
+
+        let arr = Object.entries(response)
+        let obj = {}
+        arr.forEach((item)=>{
+            console.log(item);
+            obj.categories=item[0]
+            obj.items=item[1]
+        })
+
+        arr.push(obj)
+        
+
+        console.log(arr);
+
+
+
+        // let arr = Object.entries(response);
+        // console.log(arr);
+        // // let obj = arr.map((item) => {
+        // //     obj.categories = item[0];
+        // //     obj.items = item[1];
+        // //     obj.id = 0;
+        // //     return obj
+
+        // // })
+        // arr.map((item) => {
+        //     return { categories: item[0], items: item[1], id: 0 }
+        // })
+
+
+
+
 
 
     </script>
