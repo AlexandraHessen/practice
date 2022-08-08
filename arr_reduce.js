@@ -20,3 +20,16 @@ const average = euros.reduce((total, amount, index, array) => {
   }
 });
 average // 39.37
+
+let arr1  = [1, 2, 3, 4, 5];
+
+let result = arr1.reduce((acc, numb) => acc + numb, 0);
+
+alert(result); // 15
+
+
+let arr = [1, 2 , 3]
+let sum=arr.reduce((acc, num)=> acc+num, 0)
+console.log(sum);
+
+arr.sort( (a, b) => a - b );
