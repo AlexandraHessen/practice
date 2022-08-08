@@ -11,3 +11,13 @@ const string = '12345';
 const reversed = Array.prototype.map.call(string, (x) => x).reverse().join('');
 // reversed равен '54321'
 // Бонус: используйте '===' для проверки того, является ли строка палиндромом
+
+
+chars = ['Hello' , 'world!!!'] ;
+    
+var lengths = chars.map(function(word){
+  return word.length
+}) 
+   
+let lengArrow=chars.map((word)=>word.length)
+console.log(lengths) //[5,8]
