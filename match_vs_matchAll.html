@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var regexp = /t(e)(st(\d?))/g;
+        var str = 'test1test2';
+
+        // str.match(regexp);
+        console.log(str.match(regexp));
+        // Array ['test1', 'test2']
+
+        // let array = [...str.matchAll(regexp)];
+        let array = [...str.matchAll(regexp)];
+        console.log(array);
+
+        array[0];
+        // ['test1', 'e', 'st1', '1', index: 0, input: 'test1test2', length: 4]
+        array[1];
+// ['test2', 'e', 'st2', '2', index: 5, input: 'test1test2', length: 4]
+    </script>
+</body>
+
+</html>
