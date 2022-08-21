@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let urls = [
+            'https://api.github.com/users/iliakan',
+            'https://api.github.com/users/remy',
+            'https://no-such-url'
+        ];
+
+        Promise.allSettled(urls.map(url => fetch(url)))
+            .then(results => { // (*)
+                console.log(results); //[{…}, {…}, {…}]
+                // [
+                //     0: {status: 'fulfilled', value: Response}
+                //     1: {status: 'fulfilled', value: Response}
+                //     2: {status: 'rejected', reason: TypeError: Failed to fetch at file:///C:/IT/practice/Promise.allSettled.html:19:44 at Array…}
+                // ]
+                results.forEach((result, num) => {
+                    if (result.status == "fulfilled") {
+                        console.log(`${urls[num]}: ${result.value.status}`);
+                    }
+                    if (result.status == "rejected") {
+                        console.log(`${urls[num]}: ${result.reason}`);
+                    }
+                });
+            });
+    </script>
+</body>
+
+</html>
