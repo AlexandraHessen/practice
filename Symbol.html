@@ -1,0 +1,10 @@
+var sym = Symbol("foo");
+typeof sym;     // "symbol"
+var symObj = Object(sym);
+typeof symObj;  // "object"
+
+var sym = Symbol("foo");
+typeof sym;     // "symbol"
+var symObj = Object(sym);
+typeof symObj;  // "object"
+Symbol("foo") === Symbol("foo"); // false
