@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isEqual(object1, object2) {
+            const props1 = Object.getOwnPropertyNames(object1);
+            const props2 = Object.getOwnPropertyNames(object2);
+
+            if (props1.length !== props2.length) {
+                return false;
+            }
+
+            for (let i = 0; i < props1.length; i += 1) {
+                const prop = props1[i];
+                const bothAreObjects = typeof (object1[prop]) === 'object' && typeof (object2[prop]) === 'object';
+
+                // если они без вложеннойстей и не равны - false
+                // если с вложенностью   и + РЕКУРСИЯ которая возвращает false
+                if ((!bothAreObjects && (object1[prop] !== object2[prop])) || (bothAreObjects && !isEqual(object1[prop], object2[prop]))) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        const object1 = {
+            title: "Title",
+            id: 1,
+            price: {
+                base: 100,
+                vat: 20
+            }
+        };
+
+        const object2 = {
+            title: "Title",
+            id: 1,
+            price: {
+                base: 100,
+                vat: 20
+            }
+        };
+
+        console.log(isEqual(object1, object2)); 
+    </script>
+</body>
+
+</html>
