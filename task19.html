@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log('точка 1'); //1
+
+        var pr = new Promise((resolve, reject) => {
+            console.log("я создан, запущен..."); //2 !! эта функция будет вызвана сразу!
+            setTimeout(() => {         // а вот когда уже придет результат 
+                                            // будут вызваны функции результата
+
+                //создание промиса СИНХРОННАЯ ОПЕРАЦИЯ
+                //ТОЛЬКО RESOLVE И THEN АССИНХРОННО 
+
+
+                console.log("я решён!"); //5
+                resolve(5);
+            }, 1000);
+        });
+
+        console.log('точка 2'); //3
+
+        pr.then(result => {
+            console.log("промис решён с результатом " + result); //6
+        }
+        );
+
+        console.log('точка 3'); //4
+    </script>
+</body>
+
+</html>
