@@ -1,0 +1,17 @@
+  let str = "Hello";
+    str.something = 5;
+    //Оператор instanceof проверяет, принадлежит ли ОБЪЕКТ к определённому классу
+    //а у нас str - это примитив, это не объект
+    console.log(str instanceof String); //false 
+    console.log(str instanceof Object); //false 
+    console.log(str.something); //undefined  т.к. str это не объект а примитив и мы не можем ему добавить свои свойства
+
+    function getClassName(obj) {
+      if (obj.constructor && obj.constructor.name)
+        return obj.constructor.name;
+      var c = Object.prototype.toString.apply(obj);
+      return c.substring(8, c.length - 1);
+    }
+    console.log(getClassName(str)); //String
+
+    console.log(str.__proto__); //String
