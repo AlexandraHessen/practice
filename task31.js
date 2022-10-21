@@ -1,0 +1,5 @@
+Promise.resolve('a')
+.then(res => console.log(res + 'b'))
+.catch(err => console.log(err + 'c'))
+.then(res => console.log(res + 'e'))
+.finally(res => console.log(res + 'd'))
