@@ -17,3 +17,5 @@ let ladder = {
   ladder.showStep(); // 1
   ladder.down();
   ladder.showStep(); // 0
+
+  ladder.up().up().down().showStep().down().showStep(); // показывает 1 затем 0
