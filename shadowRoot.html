@@ -1,0 +1,19 @@
+<style>
+    /* стили документа не применятся в теневом дереве внутри #elem (1) */
+    p { color: red; }
+  </style>
+  
+  <div id="elem"></div>
+  
+  <script>
+    elem.attachShadow({mode: 'open'});
+      // у теневого дерева свои стили (2)
+    elem.shadowRoot.innerHTML = `
+      <style> p { font-weight: bold; } </style>
+      <p>Hello, John!</p>
+    `;
+  
+    // <p> виден только запросам внутри теневого дерева (3)
+    alert(document.querySelectorAll('p').length); // 0
+    alert(elem.shadowRoot.querySelectorAll('p').length); // 1
+  </script>
