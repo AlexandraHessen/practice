@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const Z = {
+        // a: 5,
+        // b: { g: 8, y: 9, t: { q: 48 } },
+        // x: 47,
+        // l: { f: 85, p: { u: 89, m: 7 }, s: 71 },
+        // r: { h: 9, a: 'test', s: 'test2' }
+        // };
+        // console.log('Z object before cloning: ', Z);
+        // const Y = deepClone(Z);
+
+        // function deepClone(obj) {
+        //     const clObj = {};
+        //     for (const i in obj) {
+        //         if (obj[i] instanceof Object) {
+        //             clObj[i] = deepClone(obj[i]);
+        //             continue;
+        //         }
+        //         clObj[i] = obj[i];
+        //     }
+        //     return clObj;
+        // }
+        // console.log('Y object: ', Y);
+        const Z = {
+        a: 5,
+        b: { g: 8, y: 9, t: { q: 48 } },
+        x: 47,
+        l: { f: 85, p: { u: 89, m: 7 }, s: 71 },
+        r: { h: 9, a: 'test', s: 'test2' }
+        };
+
+        function deepClone(obj){
+            let cloneObj={}
+
+            for (const key in obj){
+                if (obj[key] instanceof Object){
+                    cloneObj[key] = deepClone(obj[key]);
+                    continue;
+                }
+                cloneObj[key] = obj[key];
+            }
+
+            return cloneObj;
+        }
+
+        console.log(deepClone(Z));
+
+        //     function deepClone(obj) {
+        //     const clObj = {};
+        //     for (const i in obj) {
+        //         if (obj[i] instanceof Object) {
+        //             clObj[i] = deepClone(obj[i]);
+        //             continue;
+        //         }
+        //         clObj[i] = obj[i];
+        //     }
+        //     return clObj;
+        // }
+
+        console.log(deepClone(Z));
+    </script>
+</body>
+
+</html>
