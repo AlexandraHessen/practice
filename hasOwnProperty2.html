@@ -16,6 +16,41 @@
         }
         console.log(obj.hasOwnProperty('a'));  //true
 
+        let rabbit = Object.create(animal); 
+
+        const deepCopy = structuredClone(objToCopy);
+
+        const object1 = {
+            title: "Alex",
+            id: 1
+        };
+
+        const object2 = {
+            title: "Alex",
+            id: 1
+        };
+
+        function isEqual(object1, object2) {
+            const props1 = Object.getOwnPropertyNames(object1); //['title', 'id']
+            const props2 = Object.getOwnPropertyNames(object2); //['title', 'id']
+
+            if (props1.length !== props2.length) {
+                return false;
+            }
+
+            for (let i = 0; i < props1.length; i += 1) {
+                const prop = props1[i]; //  'title'  ,  'id'
+                if (object1[prop] !== object2[prop]) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        console.log(isEqual(object1, object2)); // true
+
+
     </script>
 </body>
 
