@@ -8,17 +8,26 @@
 </head>
 <body>
     <script>
-        const a = [1,2,3,4,5];
+        // const a = [1,2,3,4,5];
 
-        function dublArr(arr){
-            return arr.concat(arr)
+        // function dublArr(arr){
+        //     return arr.concat(arr)
+        // }
+
+        // // let dublArr = a.concat(a);
+
+        // Array.prototype.dublArr = dublArr
+
+        // console.log(dublArr(a));
+
+        //Дублирование. Добавить такое поведение массиву:
+
+        //const a = [1,2,3,4,5];
+        //console.log(a.duplicate()); // logs --> [1,2,3,4,5,1,2,3,4,5]
+
+        Array.prototype.duplicate = function() {
+            return a.concat(a)
         }
-
-        // let dublArr = a.concat(a);
-
-        Array.prototype.dublArr = dublArr
-
-        console.log(dublArr(a));
     </script>
 </body>
 </html>
