@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const arr = [1, 2, 2, 4, 5, 6, 6, 9];
+        // let max = arr[0]
+        // arr.forEach((num) => {
+        //     // max = (num > max)? num : max
+        //     if (num > max) {
+        //         max = num
+        //     }
+        // })
+
+        // console.log(max);
+
+        // const arr=[1, 2, 3]
+        // let max=arr[0]
+        // for(let i=0; i<arr.length; i++){
+        //     max=Math.max(max, arr[i])
+        // }
+        // console.log(max)
+
+        const arr = [1, 2, 2, 4, 5, 6, 6, 9];
+        let max = arr.reduce((acc, cur)=>{
+            return acc = Math.max(acc, cur)
+        }, arr[0])
+        // let max = arr[0]
+
+        // arr.forEach((num) => {
+        //     max = Math.max(max, num)
+        // })
+
+        console.log(max);
+    </script>
+</body>
+
+</html>
