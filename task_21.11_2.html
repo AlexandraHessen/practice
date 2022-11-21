@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Когда слово читается одинаково туда и обратно каак 
+
+        let str = 'ar7ra2'
+
+        function isPalindrom(str){
+            str = str.toLowerCase()
+
+            let strReverse = str.split('').reverse().join('');
+            return str === strReverse
+        }
+
+        console.log(isPolindrom("hjh"))
+        console.log(isPolindrom("hjhff"))
+
+
+
+
+
+    </script>
+</body>
+</html>
