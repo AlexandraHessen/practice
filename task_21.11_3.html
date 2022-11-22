@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Когда число читается одинаково туда и обратно каак 
+
+        // let num = 1251
+
+        // function isPoliNumb(num){
+        //     let numReverse = Number(num.toString().split('').reverse().join(''))
+        //     console.log(Number(numReverse));
+        //     console.log(num);
+        //     return numReverse === num
+
+        // }
+
+        // console.log(isPoliNumb(num));
+
+        function isPalindrom(num) {
+            if(num < 0  || num%10 < 0){
+                return false
+            }
+            let numStr = num.toString()
+            return numStr === numStr.split('').reverse().join('')
+        }
+        console.log(isPalindrom(1))
+    </script>
+</body>
+
+</html>
