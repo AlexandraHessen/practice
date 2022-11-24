@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var romanToInt = function (s) {
+            // const I = 1;
+            // const V = 5;
+            // const X = 10;
+            // const L = 50;
+            // const C = 100;
+            // const D = 500;
+            // const M = 1000;
+
+            const romanNumeralsArr = {
+                I: 1,
+                V: 5,
+                X: 10,
+                L: 50,
+                C: 100,
+                D: 500,
+                M: 1000
+
+            }
+
+            let integerNumb = 0;
+
+            sArr = s.split('');
+
+            let prevNumb = '';
+
+            // const subtractionNumerals = {
+            //     I: 1,
+            //     X: 10,
+            //     C: 100,
+            // }
+
+            const fullNumerals = [
+                'V', 'X', 'L', 'C', 'D', 'M'
+            ]
+
+
+            // const subtractionNumerals = {
+            //     I: 1,
+            //     X: 10,
+            //     C: 100,
+            // }
+
+            // const subtractionNumerals = [
+            //     {firstNumb: 'I', 
+            //     second: ['V', 'X'],
+            //     difference: 1},
+            //     {firstNumb: 'X', 
+            //     second: ['L', 'C'],
+            //     difference: 10},
+            //     {firstNumb: 'C', 
+            //     second: ['D', 'M'],
+            //     difference: 100},
+            // ]
+
+            const subtractionNumerals = {
+                I:{
+                    second: ['V', 'X'],
+                    difference: 1},
+                X:{
+                    second: ['L', 'C'],
+                    difference: 10},
+                C:{
+                    second: ['D', 'M'],
+                    difference: 100}
+                
+            }
+
+            
+
+            sArr.forEach(num => {
+                // console.log(subtractionNumerals[prevNumb]);
+                if(subtractionNumerals.hasOwnProperty(prevNumb) && subtractionNumerals[prevNumb]?.second.includes(num)){
+                    integerNumb += romanNumeralsArr[num] -subtractionNumerals[prevNumb]?.difference - romanNumeralsArr[prevNumb]
+                } else {
+                    integerNumb += romanNumeralsArr[num]
+                }
+                prevNumb = num
+            })
+
+
+
+            // sArr.forEach(num => {
+            //     if(subtractionNumerals.hasOwnProperty(prevNumb) && fullNumerals.includes(num)){
+            //         integerNumb += romanNumeralsArr[num] -subtractionNumerals[prevNumb] - romanNumeralsArr[prevNumb]
+            //     } else {
+            //         integerNumb += romanNumeralsArr[num]
+            //     }
+            //     prevNumb = num
+            // })
+
+            return integerNumb
+        };
+
+        console.log( romanToInt("III"));  //3
+
+        console.log( romanToInt("LVIII")); //58
+
+        console.log( romanToInt("MCMXCIV")); //1994
+
+        console.log( romanToInt("DCXXI")); //1994
+
+       
+    </script>
+</body>
+
+</html>
