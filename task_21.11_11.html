@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Input: list1 = [1, 2, 4], list2 = [1, 3, 4]
+        // Output: [1, 1, 2, 3, 4, 4]
+
+        // list1 = [1, 2, 4]
+        // list2 = [1, 3, 4]
+
+        // list1 = [], list2 = []
+        list1 = [], list2 = [0]
+
+        let sumArr = []
+
+        function sumArrFunc(arr1, arr2){
+            let startArr = (arr1.length >= arr2.length) ? arr1 : arr2;
+            let secondArr = (startArr === arr1) ? arr2 : arr1
+
+            startArr.forEach((num, idx)=>{
+                sumArr.push(num)
+                if(secondArr[idx]){
+                    sumArr.push(secondArr[idx])
+                }
+            })
+
+            
+            // arr1.forEach((num, idx)=>{
+            //     sumArr.push(num)
+            //     if(secondArr[idx]){
+            //         sumArr.push(secondArr[idx])
+            //     }
+            // })
+
+
+            
+
+            return sumArr
+
+        }
+
+        // list1.forEach((num, ind)=>{
+
+        // })
+
+    
+
+
+        console.log(sumArrFunc(list1, list2));
+
+
+    </script>
+</body>
+
+</html>
