@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Input: nums = [2,7,11,15], target = 9
+        // Output: [0,1]
+
+        nums = [2, 7, 11, 15], target = 9
+        // nums = [3,3], target = 6
+
+        var twoSum = function (nums, target) {
+
+            let obj = {}
+
+            let idxArr = []
+
+            nums.forEach((num, idx)=>{
+                obj[num] = idx
+            })
+
+            nums.forEach((num, idx)=>{
+                let num2 = target - num
+
+                if(nums.includes(num2) && obj[num2] !== idx){
+                    idxArr =  [idx, obj[num2]]
+                }
+            })
+
+            return idxArr
+            // let map = new Map
+            // for(let i=0; i<nums.length; i++){
+            //     let num1 = nums[i]
+            //     let num2 = target - num1
+            //     if(map.has(num2)){
+            //         return [i, map.get(num2)]
+            //     }
+
+            //     map.set(num1, i)
+
+
+            // }
+
+
+
+
+            // let inxArr=[]
+            // let nextNumb = 0
+
+            // nums.forEach((num, idx)=>{
+            //     // if(nums.includes(target - num) ){
+            //         nextNumb = target - num
+            //         if(nums.includes(nextNumb) && idx !== nums.lastIndexOf(nextNumb) ) {
+            //             inxArr =  [ idx, nums.indexOf(target - num)]
+            //             // if(target - num === num && nums.indexOf(num) !==nums.lastIndexOf(num)){
+            //             //     inxArr =  [ idx, nums.indexOf(target - num)]
+
+            //             // } else {
+            //             //     inxArr =  [ idx, nums.indexOf(target - num)]
+            //             // }
+
+                      
+
+                        
+               
+
+            //     }
+            // })
+
+            // return inxArr
+
+
+        };
+
+        console.log(twoSum(nums, target));
+    </script>
+</body>
+
+</html>
