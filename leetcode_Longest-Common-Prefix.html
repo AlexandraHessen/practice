@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        strs = ["flower", "flow", "flight"]
+        // Output: "fl"
+
+        //1. разбить маасив на строки
+        //2. строки разбить на буквы
+        //3. перебрать буквы первого слова и сравнить его с буквами вторго
+        var longestCommonPrefix = function (strs) {
+
+            let prefix = ''
+            let startStr = strs[0].split('')
+            let startStr2 = strs[0].split('')
+
+            let obj = {}
+            let letterArr = []
+
+
+            strs.forEach((str, idx) => {
+                // obj[idx] = str.split('')
+                letterArr.push(str.split(''))
+            })
+
+            let arrAnswer = []
+
+            // console.log(startStr); //['f', 'l', 'o', 'w', 'e', 'r']
+            // console.log(letterArr); //[["f", 'l', 'o'], ['f', 'l', 'o']]
+            startStr.forEach((letter, indx) => {
+                letterArr.forEach((strArr, idx) => {
+                    if (strArr[indx] !== letter) {
+                        // console.log(letter);
+                    } else {
+                        console.log(letter);
+                    }
+                })
+            })
+
+            return startStr2
+            // strs.forEach((str)=>{
+            //     startStr.forEach(letter, indx=>{
+            //         letterArr.forEach((strArr, idx)=>{
+            //             if(strArr[indx] === letter){
+            //                 prefix=letter
+            //             }
+            //         })
+            //     })
+            // })
+
+
+
+
+
+
+            // strs.forEach((str)=>{
+            //     letterArr.push(str.split(''))
+            // })
+
+            letterArr.forEach(letArr => {
+
+
+            })
+
+
+
+        };
+
+        console.log(longestCommonPrefix(strs));
+    </script>
+</body>
+
+</html>
