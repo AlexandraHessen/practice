@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class LRUCache {
+            private cache = new Map();
+            private store = []; //[{key: value}]
+            private capacity = 0;
+
+            constructor(capacity) {
+                this.capacity = capacity
+            }
+
+            get(key) {
+                const value = this.cache.get(key)
+                if (value === undefined) {
+                    return -1
+                }
+                this.synchronizeStore(key, value)
+                return value
+            }
+
+            put(key, value) {
+                const delObjKey = this.synchronizeStore(key, value);
+                if (delObjKey) {
+                    this.cache.delete(delObjKey)
+                }
+                this.cache.set(key, value)
+                return null
+                // if (!delObjKey) {
+                //   this.cache.set(key, value)
+                //   return null 
+                // }
+                // this.cache.delete(delObjKey)
+                // this.cache.set(key, value)
+                // return null
+            }
+
+            // Тут баг, нам надо хранить другой вид объекта
+            // { key: ключ, value: значение }
+            // { key, value }
+            private synchronizeStore(key, value) {
+                for (let i = 0; i < this.store.length; i++) {
+                    if (this.store[i][key] === key) {
+                        const delObj = store.splice(i, 1);
+                        this.store.push(delObj)
+                        return
+                    }
+                }
+                if (store.length < this.capacity) {
+                    this.store.push({
+                        key: key,
+                        value: value
+                    }) // и тут
+                } else {
+                    const delObj = this.store.shift();
+                    this.store.push({
+                        key: key,
+                        value: value
+                    }) // тут баг ))
+                    return Object.keys(delObj)[0]
+                }
+
+            }
+
+
+        }
+
+
+        class LRUCache {
+            private cache = new Map();
+            private store = []; //[{key: value}]
+            private capacity = 0;
+
+            constructor(capacity) {
+                this.capacity = capacity
+            }
+
+            get(key) {
+                const value = this.cache.get(key)
+                if (value === undefined) {
+                    return -1
+                }
+                this.synchronizeStore(key, value)
+                return value
+            }
+
+            put(key, value) {
+                const delObjKey = this.synchronizeStore(key, value);
+                if (delObjKey) {
+                    this.cache.delete(delObjKey)
+                }
+                this.cache.set(key, value)
+                return null
+                // if (!delObjKey) {
+                //   this.cache.set(key, value)
+                //   return null 
+                // }
+                // this.cache.delete(delObjKey)
+                // this.cache.set(key, value)
+                // return null
+            }
+
+            // Тут баг, нам надо хранить другой вид объекта
+            // { key: ключ, value: значение }
+            // { key, value }
+            private synchronizeStore(key, value) {
+                for (let i = 0; i < this.store.length; i++) {
+                    if (this.store[i].hasOwnProperty(key)) {
+                        const delObj = store.splice(i, 1);
+                        this.store.push(delObj)
+                        return
+                    }
+                }
+                if (store.length < this.capacity) {
+                    this.store.push({
+                        key: value
+                    }) // и тут
+                } else {
+                    const delObj = this.store.shift();
+                    this.store.push({
+                        key: value
+                    }) // тут баг ))
+                    return Object.keys(delObj)[0]
+                }
+
+            }
+
+
+        }
+
+
+
+
+        /* LRU Cache 
+ * [4, 2, 5]
+ * Operrations
+ * get(key) -1 if not - O(1)
+ * put(key, value) - O(1)
+ * 
+ * */
+
+// Input
+// ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+// [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+// Output
+// [null, null, null, 1, null, -1, null, -1, 3, 4]
+
+[1, 2, 3]
+
+
+// ["get", "get", "put"]
+// [[3], [1], [4, 4]]
+
+[[3], [1], null]
+
+[1, 4, 3]
+
+//1. what data structure we need to use to store key value data         Map
+//    1.0 what value data structure will store                          Map[key, value]
+//    1.1 effective get O(1)                                            map.get()                                  
+//       1.1.1 return -1 if dont have value
+//    1.2 effective put O(1)
+
+//2. how to detect the least used value in cache
+
+// store data in array and we have convention the most left value is the least used   [{key: value}]
+// we wiil change position of value when we call get and put
+
+// if dont have value we will push it
+// if we have it we change position to last 
+
+//3.  how to handler data
+
+//4.  how to return data
+
+ {
+   'key1': '1',
+   'key2': '1',
+ }
+
+['1', {}, {}, {}, {}]
+
+class LRUCache {
+  private cache = new Map();
+  private store = [];  //[{key: value}]
+  private capacity = 0;
+
+  constructor(capacity){
+    this.capacity = capacity
+  }
+
+  get(key){
+    const value = this.cache.get(key)
+    if(value === undefined){
+      return -1
+    }
+    this.synchronizeStore(key, value)
+    return value
+  }
+  
+  put(key, value){
+    const delObjKey = this.synchronizeStore(key, value);
+    if (delObjKey) {
+      this.cache.delete(delObjKey)
+    }
+    this.cache.set(key, value)
+    return null
+    // if (!delObjKey) {
+    //   this.cache.set(key, value)
+    //   return null 
+    // }
+    // this.cache.delete(delObjKey)
+    // this.cache.set(key, value)
+    // return null
+  }
+
+// Тут баг, нам надо хранить другой вид объекта
+// { key: ключ, value: значение }
+// { key, value }
+ private synchronizeStore(key, value) {
+  for(let i=0; i< this.store.length; i++){
+    if (this.store[i][key] === key){
+      const delObj = this.store.splice(i, 1);
+      this.store.push(delObj)
+    	return
+    }
+  }
+   if(this.store.length < this.capacity){
+      // this.store.push({key: value}) // и тут
+    this.store.push({
+      key: key,
+      value: value
+		})
+   } else {
+     const delObj = this.store.shift();
+     // this.store.push({key: value}) // тут баг ))
+     this.store.push({
+      key: key,
+      value: value
+		})
+     return delObj[key]
+   }
+ 
+ }
+
+
+}
+
+
+/* LRU Cache 
+ * [4, 2, 5]
+ * Operrations
+ * get(key) -1 if not - O(1)
+ * put(key, value) - O(1)
+ * 
+ * */
+
+// Input
+// ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+// [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+// Output
+// [null, null, null, 1, null, -1, null, -1, 3, 4]
+
+[1, 2, 3]
+
+
+// ["get", "get", "put"]
+// [[3], [1], [4, 4]]
+
+[[3], [1], null]
+
+[1, 4, 3]
+
+//1. what data structure we need to use to store key value data         Map
+//    1.0 what value data structure will store                          Map[key, value]
+//    1.1 effective get O(1)                                            map.get()                                  
+//       1.1.1 return -1 if dont have value
+//    1.2 effective put O(1)
+
+//2. how to detect the least used value in cache
+
+// store data in array and we have convention the most left value is the least used   [{key: value}]
+// we wiil change position of value when we call get and put
+
+// if dont have value we will push it
+// if we have it we change position to last 
+
+//3.  how to handler data
+
+//4.  how to return data
+
+ {
+   'key1': '1',
+   'key2': '1',
+ }
+
+['1', {}, {}, {}, {}]
+
+class LRUCache {
+  private cache = new Map();
+  private store = [];  //[{key: value}]
+  private capacity = 0;
+
+  constructor(capacity){
+    this.capacity = capacity
+  }
+
+  get(key){
+    const value = this.cache.get(key)
+    if(value === undefined){
+      return -1
+    }
+    this.synchronizeStore(key, value)
+    return value
+  }
+  
+  put(key, value){
+    const delObjKey = this.synchronizeStore(key, value);
+    if (delObjKey) {
+      this.cache.delete(delObjKey)
+    }
+    this.cache.set(key, value)
+    return null
+    // if (!delObjKey) {
+    //   this.cache.set(key, value)
+    //   return null 
+    // }
+    // this.cache.delete(delObjKey)
+    // this.cache.set(key, value)
+    // return null
+  }
+
+// Тут баг, нам надо хранить другой вид объекта
+// { key: ключ, value: значение }
+// { key, value }
+ private synchronizeStore(key, value) {
+  for(let i=0; i< this.store.length; i++){
+    if (this.store[i][key] === key){
+      const delObj = this.store.splice(i, 1);
+      this.store.push(delObj)
+    	return
+    }
+  }
+   if(this.store.length < this.capacity){
+      // this.store.push({key: value}) // и тут
+    this.store.push({
+      key,
+      value
+		})
+   } else {
+     const delObj = this.store.shift();
+     // this.store.push({key: value}) // тут баг ))
+     this.store.push({
+      key,
+      value
+		})
+     return delObj[key]
+   }
+ 
+ }
+
+
+}
+
+
+    </script>
+</body>
+
+</html>
