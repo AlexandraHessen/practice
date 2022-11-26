@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //LocalDateTime
+        // let myDate = '24/08/22'
+        // 2022-08-10T14:15:56.818Z
+        // 2022-08-10T14:15:56.81
+        // "dateOfIssue": [2016,1,25,21,34,55]
+        //"dateOfIssue": "2016-01-25T21:34:55"
+        let myDate = new Date("Tue Aug 16 2022 00:00:00 GMT+0300 (Москва, стандартное время");
+        
+        console.log(myDate.toISOString());
+        console.log(myDate.toLocaleString());
+        console.log(myDate.toString());
+        console.log(myDate.toJSON());
+console.log(myDate);
+console.log(Date.parse(myDate));
+console.log(myDate.getMilliseconds());
+        
+        var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+    var localISOTime = (new Date(Date.parse(myDate) - tzoffset)).toISOString().slice(0, -5);
+    
+    console.log(localISOTime)
+    </script>
+</body>
+</html>
