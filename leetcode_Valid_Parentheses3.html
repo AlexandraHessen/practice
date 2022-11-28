@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //какая струкрута данных нам удобна для перебора    array 
+
+        // как определтть парную скобку [ {'(': ')', }]
+        var isValid = function (s) {
+            if (s.length === 1) {
+                return false
+            }
+            let arr = s.split('');
+            let obj = {
+                '(': ')',
+                '{': '}',
+                '[': ']',
+            }
+
+            let isValid
+
+            let store = []
+
+            arr.forEach((br) => {
+                if (obj[br] !== undefined) {
+                    store.push(br)
+                    console.log(store);
+                } else {
+                    let startingBracket = store.pop()
+                    console.log(startingBracket);
+                    if (obj[startingBracket] === br) {
+                        if (store.length === 0) {
+                            isValid = true
+                        }
+                    } else {
+                        isValid = false
+                    }
+                }
+            })
+
+            if (store.length !== 0) {
+                isValid = false
+            }
+
+            return isValid
+
+        };
+        // console.log(isValid("()")); //true
+        // console.log(isValid("()[]")); //true
+        // console.log(isValid("([)]")); //false
+        // console.log(isValid("(){}[]")); //true
+        // console.log(isValid("(]")); //false
+
+        // console.log(isValid("(")); //false
+        console.log(isValid("((")); //false
+        console.log(isValid("({{{{}}}))")); //false
+    </script>
+</body>
+
+</html>
