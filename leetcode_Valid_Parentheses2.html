@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //какая струкрута данных нам удобна для перебора    array 
+
+        // как определтть парную скобку [ {'(': ')', }]
+        var isValid = function (s) {
+            let arr = s.split(''); //["(", "]"]
+            
+            let isValid
+            let obj = {
+                '(': ')',
+                '{': '}',
+                '[': ']',
+            }
+
+            let start=arr[0]
+
+            for(let i=1; i<arr.length; i++){
+                let next = arr[i]
+                if(obj[start] === next){
+                    arr.splice(i-1, 1)
+                    arr.splice(i, 1)
+                } else{
+                    start = next
+                }
+            }
+
+            if(arr.length === 0 ){
+                isValid = true
+            } else {
+                isValid = false
+            }
+
+
+            // let first= s.split[0, 1]
+
+            // if(s.includes(obj[first])){
+            //     let delIndex = s.indexOf(obj[first]);
+            //     s.split[delIndex, 1]
+            // } else {
+            //     isValid = false
+
+            // }
+
+            // if (s.length === 0) {
+            //         isValid = true
+            //     }
+
+            // arr.forEach((br, idx) => {
+            //     console.log(br);
+            //     console.log(obj[br]);
+            //     if (arr.includes(obj[br])) {
+            //         // console.log(obj[br]);
+            //         // console.log(idx);
+
+            //         let myIndex = arr.indexOf(br);
+
+            //         if (myIndex !== -1) {
+            //             arr.splice(myIndex, 1);
+            //         }
+
+            //         let delmyIndex = arr.indexOf(obj[br]);
+
+            //         if (delmyIndex !== -1) {
+            //             arr.splice(delmyIndex, 1);
+            //         }
+
+
+            //         // arr.splice(idx, 1);
+            //         // console.log(arr);
+            //         // let delIdx = arr.indexOf(obj[br])
+            //         // console.log(delIdx);
+            //         // arr.splice(delIdx, 1)
+            //         // console.log(arr);
+
+            //     } else {
+            //         isValid = false
+            //     }
+
+            //     if (arr.length === 0) {
+            //         isValid = true
+            //     }
+
+            // })
+
+            return isValid
+
+
+        };
+
+        console.log(isValid("([)]"));
+        console.log(isValid("(){}[]"));
+        // console.log(isValid("[{{)("));
+        console.log(isValid("(]"));
+    </script>
+</body>
+
+</html>
