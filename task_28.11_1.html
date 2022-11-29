@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class LRUCache {
+            cache = new WeakMap();
+            store = []; //[{key: value}]
+            capacity = 0;
+
+            constructor(capacity) {
+                this.capacity = capacity
+            }
+
+            get(key) {
+                const value = this.cache.get(key)
+                if (value === undefined) {
+                    return -1
+                }
+                this.synchronizeStore(key, value)
+                return value
+            }
+
+            put(key, value) {
+                let obj ={key: value}
+                const delObjKey = this.synchronizeStore(obj, key, value);
+                this.cache.set(obj, value)
+                return null
+                // if (!delObjKey) {
+                //   this.cache.set(key, value)
+                //   return null 
+                // }
+                // this.cache.delete(delObjKey)
+                // this.cache.set(key, value)
+                // return null
+            }
+
+            // Тут баг, нам надо хранить другой вид объекта
+            // { key: ключ, value: значение }
+            // { key, value }
+            synchronizeStore(obj, key, value) {
+                for (let i = 0; i < this.store.length; i++) {
+                    if (this.store[i][key] === key) {
+                        const delObj = this.store.splice(i, 1);
+                        this.store.push(delObj)
+                        return
+                    }
+                }
+                if (this.store.length < this.capacity) {
+                    // this.store.push({key: value}) // и тут
+                    this.store.push({
+                        key,
+                        value
+                    })
+                    return
+                }
+                const delObj = this.store.shift();
+                // this.store.push({key: value}) // тут баг ))
+                this.store.push({
+                    key,
+                    value
+                })
+                return delObj[key]
+            }
+        }
+
+        let cacheTest = new LRUCache(3)
+        console.log(cacheTest);
+        cacheTest.put(1, 1)
+        cacheTest.put(2, 2)
+        cacheTest.put(3, 3)
+
+        cacheTest.put(4, 4)
+        cacheTest.get(2, 2)
+        cacheTest.put(5, 5)
+        console.log(cacheTest.cache);
+        console.log(cacheTest.store);
+        console.log(cacheTest.get(5));
+        console.log(cacheTest.get(6));
+
+
+    </script>
+</body>
+
+</html>
