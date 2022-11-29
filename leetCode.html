@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        arr1= [2, 5, 9]
+        arr2 = [1, 8, 5, 2, 3, 2 ]
+
+        function findNumb(arr1, arr2){
+            let resArr = []
+
+            let map1 = new Map
+            let map2 = new Map
+            arr1.forEach(num=>{
+                if(map1.has(num)){
+                    map1.set(nam, map1.get(num)+1)
+                } else{
+                    map1.set(nam, 1)
+                }
+            })
+
+            arr2.forEach(num=>{
+                if(map2.has(num)){
+                    map2.set(nam, map2.get(num)+1)
+                } else{
+                    map1.set(nam, 1)
+                }
+            })
+
+            let longestArr=(arr1.length>arr2.length)?arr1:arr2
+            longestArr.forEach()
+            // arr1.forEach((num1, inx)=>{
+            //     arr2.forEach(num2=>{
+            //         if (num1 === num2 ){
+            //             resArr.push(num1)
+            //         }
+            //     })
+            // })
+
+            return resArr
+        }
+
+        console.log(findNumb(arr1, arr2));
+    </script>
+</body>
+</html>
