@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let date1 = '08/12/2020'
+        console.log(Number(date1));
+        console.log(new Date(date1).getMilliseconds());
+        // let date2 = 15 / 08 / 2021
+        // let array = [date1, date2]
+
+        // console.log(new Date(date1).getTime());
+        // console.log(Number(date1)); //0.000556379821958457
+        // console.log(Number(date2)); //0.0009277585353785255
+        // console.log(new Date(date2));
+
+        // array.sort(function (a, b) {
+        //     // Turn your strings into dates, and then subtract them
+        //     // to get a value that is either negative, positive, or zero.
+        //     return new Date(b).getMilliseconds() - new Date(a).getMilliseconds();
+        // });
+
+        // console.log(array);
+
+        // let yourDate = momentjs(new Date().toLocaleDateString(), 'M/D/YYYY').format('YYYY-MM-DD');
+        // let newDate = Number(yourDate.slice(0, 10).split('-').join(''));
+
+        // const date = new Date();
+        // date.setDate(Number("15"));
+        // date.setMonth(Number("18") - 1);
+        // date.setFullYear(Number("2021"))
+
+        let test = '08/12/2020'
+        let dateArr = test.split('/')
+
+        console.log(test.split('/'));
+
+        let date = new Date();
+        date.setDate(Number(dateArr[0]));
+        date.setMonth(Number(dateArr[1]) - 1);
+        date.setFullYear(Number(dateArr[2]))
+
+        console.log(date);
+
+        let mil = date.getMilliseconds()
+        console.log(mil);
+
+        // dateArr.forEach(dat =>{
+        //     let  date = new Date();
+        // date.setDate(Number(dat[0]));
+        // date.setMonth(Number(dat[1]) - 1);
+        // date.setFullYear(Number(dat[2]))
+
+        // console.log(date);
+        // return date
+        // })
+
+        // const date = new Date();
+        // date.setDate(Number("15"));
+        // date.setMonth(Number("18") - 1);
+        // date.setFullYear(Number("2021"))
+    </script>
+</body>
+
+</html>
