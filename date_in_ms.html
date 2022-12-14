@@ -49,8 +49,25 @@
 
         console.log(date);
 
+        const date2 = new Date(`${dateArr[2]}-${dateArr[1]}-${dateArr[0]}T00:00:00`);
+        const date3 = `${dateArr[2]}-${dateArr[1]}-${dateArr[0]}T00:00:00`
+        console.log(`${dateArr[2]}-${dateArr[1]}-${dateArr[0]}T00:00:00`);
+
         let mil = date.getMilliseconds()
+
         console.log(mil);
+
+        // let mil2 = date2.getMilliseconds()
+        
+        // console.log(mil2);
+
+        let mil3 = Date.parse(date2);
+        
+        console.log(mil3);
+
+        let mil4 = Date.parse(date3);
+        
+        console.log(mil4);
 
         // dateArr.forEach(dat =>{
         //     let  date = new Date();
