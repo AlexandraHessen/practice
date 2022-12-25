@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str1 = 'adda'
+        let str2 = 'adop'
+
+        function isPolindrom(str){
+            let strEnd = str.split('').reverse().join('')
+
+            return str === strEnd
+        }
+
+        console.log(isPolindrom(str1)); // true 
+        console.log(isPolindrom(str2)); // false
+
+        let test = str1.split('')
+
+        console.log(str1.split(''));
+        console.log(test.join(''));
+    </script>
+</body>
+</html>
