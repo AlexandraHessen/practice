@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let brack = "([)]"
+
+        function isValid(str) {
+            let stack = []
+            const bracketPair = {
+                ')': '(',
+                ']': '[',
+                '}': '{',
+            }
+
+            let closeBracket = [')', ']', '}']
+
+            let strArr = str.split('')
+
+            let isValid = false
+
+            strArr.forEach(br =>{
+
+                if(closeBracket.includes(br)){
+                    let openBrack = stack.pop()
+                    // bracketPair[br] === openBrack
+                    console.log(openBrack);
+                    console.log(bracketPair[br]);
+                    console.log(bracketPair[br] !== openBrack);
+                    if(bracketPair[br] !== openBrack){
+                        return false
+                    } 
+                } else {
+                    stack.push(br)
+                }
+
+console.log(stack);
+            })
+
+            return stack.length === 0
+
+            
+            // return isValid
+        }
+
+
+        
+
+        console.log(isValid(brack));
+    </script>
+</body>
+
+</html>
